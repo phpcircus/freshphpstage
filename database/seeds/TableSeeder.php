@@ -1,15 +1,25 @@
 <?php
 
+use App\Models\Post;
 use App\Models\User;
+use Ramsey\Uuid\Uuid;
+use App\Models\Comment;
 use Illuminate\Database\Seeder;
 
-class UsersTableSeeder extends Seeder
+class TableSeeder extends Seeder
 {
     /**
-     * Seed the application's users table.
+     * Run the database seeds.
      */
     public function run()
     {
+        $users = factory(User::class, 10)->create();
+
+        collect($users)->each(function ($user) {
+            $post = factory(Post::class)->create(['user_id' => $user->id]);
+            $comment = factory(Comment::class)->create(['post_id' => $post->id]);
+        });
+
         $this->createDefaultAdmin();
     }
 
@@ -24,6 +34,7 @@ class UsersTableSeeder extends Seeder
             'name' => config('auth.admin.name'),
             'email' => config('auth.admin.email'),
             'password' => bcrypt(config('auth.admin.password')),
+            'uuid' => Uuid::uuid4(),
         ]);
     }
 }
