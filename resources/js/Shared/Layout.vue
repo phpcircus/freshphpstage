@@ -5,7 +5,7 @@
         <div class="flex flex-col">
             <div class="min-h-screen flex flex-col" @click="hideDropdownMenus">
                 <div class="md:flex">
-                    <div class="bg-blue-900 md:flex-no-shrink w-full md:w-2/7 lg:w-1/7 px-6 py-4 flex items-center justify-between md:justify-center">
+                    <div class="bg-blue-900 md:flex-no-shrink w-full px-6 py-4 flex items-center justify-between md:justify-center">
                         <inertia-link class="mt-1" href="/">
                             <logo class="fill-white" width="120" height="28" />
                         </inertia-link>
@@ -16,7 +16,7 @@
                             </div>
                         </dropdown>
                     </div>
-                    <div class="flex w-full md:w-5/7 lg:w-6/7 bg-white border-b p-4 md:py-0 md:px-12 text-sm md:text-base flex justify-between items-center">
+                    <div class="flex w-full bg-white border-b p-4 md:py-0 md:px-12 text-sm md:text-base flex justify-between items-center">
                         <div class="mt-1 mr-4">&nbsp;</div>
                         <dropdown class="mt-1 md:ml-auto " placement="bottom-end">
                             <div class="flex items-center cursor-pointer select-none group">
