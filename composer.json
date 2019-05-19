@@ -1,14 +1,14 @@
 {
-    "name": "phpcircus/phpstage-skeleton",
-    "description": "Laravel skeleton app for PHPStage web apps.",
-    "version": "2.0.0",
+    "name": "phpcircus/freshphpstage",
+    "description": "PHPStage.com powered by inertiajs",
+    "version": "1.0.0",
     "keywords": [
         "phpstage",
         "phpcircus",
         "laravel",
-        "skeleton"
+        "blog"
     ],
-    "homepage": "https://github.com/phpcircus/phpstage-skeleton",
+    "homepage": "https://github.com/phpcircus/freshphpstage",
     "license": "MIT",
     "authors": [
         {
