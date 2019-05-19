@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\Collection;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Pagination\UrlWindow;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\ServiceProvider;
@@ -17,6 +18,14 @@ class PaginationServiceProvider extends ServiceProvider implements DeferrablePro
     public function register()
     {
         $this->registerLengthAwarePaginator();
+    }
+
+    /**
+     * Boot services.
+     */
+    public function boot()
+    {
+        Paginator::defaultView('vendor.pagination.default');
     }
 
     /**

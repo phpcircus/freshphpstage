@@ -177,6 +177,8 @@ return [
         App\Providers\PaginationServiceProvider::class,
         App\Providers\InertiaServiceProvider::class,
         App\Providers\DateServiceProvider::class,
+        App\Providers\DatabaseServiceProvider::class,
+        App\Providers\UrlServiceProvider::class,
     ],
 
     /*

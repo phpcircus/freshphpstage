@@ -20,6 +20,16 @@ class User extends Authenticatable implements AuthorizableContract, MustVerifyEm
     protected $perPage = 10;
 
     /**
+     * A user has many posts.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
+
+    /**
      * Order query by user name.
      *
      * @param  \Illuminate\Database\Eloquent\Builder  $builder
