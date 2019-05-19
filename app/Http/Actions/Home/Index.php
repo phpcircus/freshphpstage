@@ -1,20 +1,20 @@
 <?php
 
-namespace App\Http\Actions\Dashboard;
+namespace App\Http\Actions\Home;
 
+use App\Services\Home\IndexService;
 use PerfectOblivion\Actions\Action;
-use App\Services\Dashboard\IndexService;
-use App\Http\Responders\Dashboard\IndexResponder;
+use App\Http\Responders\Home\IndexResponder;
 
 class Index extends Action
 {
-    /** @var \App\Http\Responders\Dashboard\IndexResponder */
+    /** @var \App\Http\Responders\Home\IndexResponder */
     private $responder;
 
     /**
-     * Construct a new Dashboard Index action.
+     * Construct a new Home Index action.
      *
-     * @param  \App\Http\Responders\Dashboard\IndexResponder  $responder
+     * @param  \App\Http\Responders\Home\IndexResponder  $responder
      */
     public function __construct(IndexResponder $responder)
     {
@@ -22,7 +22,7 @@ class Index extends Action
     }
 
     /**
-     * Show the appllication dashboard.
+     * Show the application home page.
      *
      * @return \Illuminate\View\View
      */

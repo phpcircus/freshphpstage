@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Responders\Dashboard;
+namespace App\Http\Responders\Home;
 
 use Inertia\Inertia;
 use PerfectOblivion\Responder\Responder;
@@ -14,6 +14,6 @@ class IndexResponder extends Responder
      */
     public function respond()
     {
-        return Inertia::render('Dashboard/Index', $this->payload->toArray());
+        return Inertia::render('Home/Index', $this->payload);
     }
 }

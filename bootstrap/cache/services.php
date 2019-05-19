@@ -51,6 +51,8 @@
     47 => 'App\\Providers\\PaginationServiceProvider',
     48 => 'App\\Providers\\InertiaServiceProvider',
     49 => 'App\\Providers\\DateServiceProvider',
+    50 => 'App\\Providers\\DatabaseServiceProvider',
+    51 => 'App\\Providers\\UrlServiceProvider',
   ),
   'eager' => 
   array (
@@ -87,6 +89,8 @@
     30 => 'App\\Providers\\MacroServiceProvider',
     31 => 'App\\Providers\\InertiaServiceProvider',
     32 => 'App\\Providers\\DateServiceProvider',
+    33 => 'App\\Providers\\DatabaseServiceProvider',
+    34 => 'App\\Providers\\UrlServiceProvider',
   ),
   'deferred' => 
   array (

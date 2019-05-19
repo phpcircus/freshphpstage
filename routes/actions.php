@@ -1,8 +1,8 @@
 <?php
 
-// Dashboard
-Route::redirect('/', '/dashboard');
-Route::get('/dashboard', Dashboard\Index::class)->middleware(['auth'])->name('dashboard');
+// Home
+Route::redirect('/', '/home');
+Route::get('/home', Home\Index::class)->name('home');
 
 // Authentication and Registration
 // Auth - Login
