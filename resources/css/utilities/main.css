@@ -1,6 +1,6 @@
-@import url('widths.css');
-@import url('heights.css');
-@import url('margins.css');
-@import url('paddings.css');
-@import url('outlines.css');
-@import url('shadows.css');
+@import './widths.css';
+@import './heights.css';
+@import './margins.css';
+@import './paddings.css';
+@import './outlines.css';
+@import './shadows.css';

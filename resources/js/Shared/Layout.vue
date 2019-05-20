@@ -5,7 +5,7 @@
         <div class="flex flex-col">
             <div class="min-h-screen flex flex-col" @click="hideDropdownMenus">
                 <div class="flex flex-wrap">
-                    <div class="bg-blue-900 flex-no-shrink w-full px-6 py-4 flex justify-between items-center">
+                    <div class="bg-blue-900 flex-no-shrink w-full px-4 py-8 md:p-12 flex justify-between items-center">
                         <inertia-link class="mt-1" href="/">
                             <logo position="left" />
                         </inertia-link>
@@ -19,7 +19,10 @@
                             </div>
                         </dropdown>
                     </div>
-                    <div class="flex w-full bg-white border-b p-4 md:py-0 md:px-12 text-sm md:text-base flex justify-between items-center h-16">
+                    <div class="flex w-full h-20 bg-white border-b p-4 px-4 py-8 md:px-12 text-sm md:text-base justify-between items-center relative">
+                        <div>
+                            <search-box class="absolute top-0 left-0 mt-8 ml-4 md:mt-6 md:ml-12" />
+                        </div>
                         <div class="mt-1 mr-4">&nbsp;</div>
                         <dropdown v-if="$page.auth.user" class="mt-1 md:ml-auto " placement="bottom-end">
                             <div class="flex items-center cursor-pointer select-none group">
@@ -56,6 +59,7 @@
     import Logo from '@/Shared/Logo';
     import Dropdown from '@/Shared/Dropdown';
     import MainMenu from '@/Shared/MainMenu';
+    import SearchBox from '@/Shared/SearchBox';
     import HasNotifications from 'Mixins/HasNotifications';
 
     export default {
@@ -64,6 +68,7 @@
             Icon,
             Logo,
             MainMenu,
+            SearchBox,
         },
         mixins: [ HasNotifications ],
         props: {
