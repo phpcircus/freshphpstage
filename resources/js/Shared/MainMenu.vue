@@ -7,7 +7,7 @@
             </inertia-link>
         </div>
         <div :class="margin">
-            <inertia-link class="flex items-center group py-3" href="#">
+            <inertia-link class="flex items-center group py-3" :href="route('posts')">
                 <icon name="posts" class="w-4 h-4 mr-2" :class="isPath('posts') ? 'fill-white' : 'fill-blue-300 group-hover:fill-white'" />
                 <div :class="isPath('posts') ? 'text-white' : 'text-blue-200 group-hover:text-white'" class="text-xl">Posts</div>
             </inertia-link>

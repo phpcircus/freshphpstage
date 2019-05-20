@@ -4,6 +4,7 @@ namespace App\Http\Actions\Post;
 
 use App\Models\Post;
 use PerfectOblivion\Actions\Action;
+use App\Http\Responders\Post\ShowPostResponder;
 
 class ShowPost extends Action
 {

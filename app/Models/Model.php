@@ -11,7 +11,7 @@ abstract class Model extends Eloquent
     protected $guarded = [];
 
     /** @var int */
-    protected $perPage = 10;
+    protected $perPage = 5;
 
     /*
      * Retrieve the model for a bound value.

@@ -10,6 +10,9 @@ class Post extends Model
 {
     use HasUuids, HasSlug, Searchable;
 
+    /** @var array */
+    protected $appends = ['createdAtDiff'];
+
     /**
      * Get the route key for the model.
      *
@@ -54,7 +57,12 @@ class Post extends Model
         return null;
     }
 
-    public function createdAtDiff()
+    /**
+     * Get a human-readable diff date for created_at.
+     *
+     * @return string
+     */
+    public function getCreatedAtDiffAttribute()
     {
         return $this->created_at->diffForHumans();
     }

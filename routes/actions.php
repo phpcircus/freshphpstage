@@ -31,7 +31,7 @@ Route::get('email/verify/{id}', Auth\EmailVerification\Verify::class)->name('ver
 Route::get('email/resend ', Auth\EmailVerification\ResendVerify::class)->name('verification.resend');
 
 // Users
-Route::get('users', User\ListUsers::class)->middleware('remember', 'auth')->name('users');
+Route::get('users', User\ListUsers::class)->middleware('auth')->name('users');
 Route::get('users/create', User\CreateUser::class)->middleware('auth')->name('users.create');
 Route::post('users', User\StoreUser::class)->middleware('auth')->name('users.store');
 Route::delete('users/{user}', User\DeleteUser::class)->middleware('auth', 'selfdelete.prevent')->name('users.destroy');
@@ -40,4 +40,5 @@ Route::put('users/{user}', User\UpdateUser::class)->middleware('auth')->name('us
 Route::put('users/{user}/restore', User\RestoreUser::class)->middleware('auth')->name('users.restore');
 
 // Posts
-Route::get('posts/{post}/edit', Post\ShowPost::class)->name('post.show');
+Route::get('posts', Post\ListPosts::class)->name('posts');
+Route::get('posts/{post}', Post\ShowPost::class)->name('post.show');
