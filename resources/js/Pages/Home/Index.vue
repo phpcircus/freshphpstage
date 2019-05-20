@@ -1,7 +1,19 @@
 <template>
     <layout title="Home">
-        <h1 class="mb-8 font-bold text-3xl">Home</h1>
-        <p class="mb-12 leading-normal">Welcome to PHPStage!</p>
+        <h1 class="w-300p uppercase text-3xl font-medium text-blue-900 border-b border-gray-600 pb-4 pt-4 mb-8">
+            Latest Posts
+        </h1>
+        <div v-if="posts.length > 0">
+            <div v-for="post in posts" :key="post.id" class="mb-8">
+                <h2 class="font-medium text-2xl mb-2 md:text-3xl tracking-wide">
+                    <a :href="route('post.show', post.slug)" class="text-blue-900 hover:text-blue-500 no-underline">{{ post.title }}</a>
+                </h2>
+                <p class="text-lg md:text-2xl text-blue-800 font-normal tracking-normal">Posted: {{ post.created_at }}</p>
+            </div>
+        </div>
+        <div v-else>
+            <h2 class="font-medium text-lg mb-2 md:text-xl tracking-wide">No Posts Available</h2>
+        </div>
     </layout>
 </template>
 
@@ -13,7 +25,7 @@ export default {
         Layout,
     },
     props: {
-        posts: Object,
+        posts: Array,
     },
 }
 </script>

@@ -22,12 +22,10 @@ class IndexService
     /**
      * Handle the call to the service.
      *
-     * @return array
+     * @return \Illuminate\Support\Collection
      */
     public function run()
     {
-        return [
-            'posts' => $this->posts->latest()->take(5)->get(),
-        ];
+        return $this->posts->latest()->take(5)->get();
     }
 }

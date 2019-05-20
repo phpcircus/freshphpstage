@@ -1,9 +1,21 @@
 <template>
-    <div>
-        <div class="mb-4">
-            <inertia-link class="flex items-center group py-3" :href="route('dashboard')">
-                <icon name="dashboard" class="w-4 h-4 mr-2" :class="isPath('dashboard') ? 'fill-white' : 'fill-blue-300 group-hover:fill-white'" />
-                <div :class="isPath('dashboard') ? 'text-white' : 'text-blue-200 group-hover:text-white'">Dashboard</div>
+    <div :class="display">
+        <div :class="margin">
+            <inertia-link class="flex items-center group py-3" :href="route('home')">
+                <icon name="home" class="w-4 h-4 mr-2" :class="isPath('home') ? 'fill-white' : 'fill-blue-300 group-hover:fill-white'" />
+                <div :class="isPath('home') ? 'text-white' : 'text-blue-200 group-hover:text-white'" class="text-xl">Home</div>
+            </inertia-link>
+        </div>
+        <div :class="margin">
+            <inertia-link class="flex items-center group py-3" href="#">
+                <icon name="posts" class="w-4 h-4 mr-2" :class="isPath('posts') ? 'fill-white' : 'fill-blue-300 group-hover:fill-white'" />
+                <div :class="isPath('posts') ? 'text-white' : 'text-blue-200 group-hover:text-white'" class="text-xl">Posts</div>
+            </inertia-link>
+        </div>
+        <div :class="margin">
+            <inertia-link class="flex items-center group py-3" href="#">
+                <icon name="user" class="w-4 h-4 mr-2" :class="isPath('about') ? 'fill-white' : 'fill-blue-300 group-hover:fill-white'" />
+                <div :class="isPath('about') ? 'text-white' : 'text-blue-200 group-hover:text-white'" class="text-xl">About Me</div>
             </inertia-link>
         </div>
     </div>
@@ -18,5 +30,22 @@ export default {
         Icon,
     },
     mixins: [ ParsesUrls ],
+    props: {
+        display: {
+            type: String,
+            default: 'block',
+        },
+    },
+    computed: {
+        margin () {
+            if (this.display === 'block' || this.display === 'flex flex-col') {
+                return 'mb-4';
+            } else if (this.display === 'flex flex-row') {
+                return 'mr-8';
+            } else {
+                return 'mb-4';
+            }
+        },
+    },
 }
 </script>

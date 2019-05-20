@@ -38,3 +38,6 @@ Route::delete('users/{user}', User\DeleteUser::class)->middleware('auth', 'selfd
 Route::get('users/{user}/edit', User\EditUser::class)->middleware('auth')->name('users.edit');
 Route::put('users/{user}', User\UpdateUser::class)->middleware('auth')->name('users.update');
 Route::put('users/{user}/restore', User\RestoreUser::class)->middleware('auth')->name('users.restore');
+
+// Posts
+Route::get('posts/{post}/edit', Post\ShowPost::class)->name('post.show');
