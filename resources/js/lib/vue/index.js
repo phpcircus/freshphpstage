@@ -7,9 +7,9 @@ import VModal from 'vue-js-modal';
 import PortalVue from 'portal-vue';
 import ParsesUrls from 'Mixins/ParsesUrls';
 import Dispatchable from 'Mixins/Dispatchable';
+import VueInstantSearch from 'vue-instantsearch';
 import Snotify, { SnotifyPosition } from 'vue-snotify';
 import HasNotifications from 'Mixins/HasNotifications';
-
 
 // Use mixins
 Vue.mixin({ methods: { route: (...args) => window.route(...args).url() } });
@@ -17,6 +17,9 @@ Vue.mixin(HasNotifications);
 Vue.mixin(Dispatchable);
 Vue.mixin(ParsesUrls);
 Vue.mixin(Dates);
+
+// Use Vue instant-search
+Vue.use(VueInstantSearch);
 
 // Use PortalVue
 Vue.use(PortalVue);

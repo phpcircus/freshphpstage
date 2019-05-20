@@ -92,6 +92,9 @@ module.exports = {
                     'sans-serif',
                 ],
             },
+            spacing: {
+              '7': '1.75rem',
+            },
         },
     },
     variants: {

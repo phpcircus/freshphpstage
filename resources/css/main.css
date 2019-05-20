@@ -14,4 +14,4 @@
 @import 'tailwindcss/utilities';
 
 /* Custom Utilities */
-@import './components/main';
+@import './utilities/main';
