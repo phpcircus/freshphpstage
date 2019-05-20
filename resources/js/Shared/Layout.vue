@@ -6,7 +6,7 @@
             <div class="min-h-screen flex flex-col" @click="hideDropdownMenus">
                 <div class="flex flex-wrap">
                     <div class="bg-blue-900 flex-no-shrink w-full px-4 py-8 md:p-12 flex justify-between items-center">
-                        <inertia-link class="mt-1" href="/">
+                        <inertia-link class="mt-1" :href="route('home')">
                             <logo position="left" />
                         </inertia-link>
                         <div class="hidden md:block">
