@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Responders\Home;
+namespace App\Http\Responders\Post;
 
 use Inertia\Inertia;
 use PerfectOblivion\Responder\Responder;
 
-class IndexResponder extends Responder
+class ShowPostResponder extends Responder
 {
     /**
      * Send a response.
@@ -14,6 +14,6 @@ class IndexResponder extends Responder
      */
     public function respond()
     {
-        return Inertia::render('Home/Index', ['posts' => $this->payload]);
+        return Inertia::render('Posts/Show', ['post' => $this->payload]);
     }
 }
