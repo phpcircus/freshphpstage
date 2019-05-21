@@ -3,8 +3,9 @@
 namespace App\Models;
 
 use Laravel\Scout\Searchable;
-use App\Models\Traits\HasSlug;
-use App\Models\Traits\HasUuids;
+use App\Models\Traits\Slug\HasSlug;
+use App\Models\Traits\Uuid\HasUuids;
+use App\Models\Traits\Slug\SlugOptions;
 
 class Post extends Model
 {
@@ -21,6 +22,16 @@ class Post extends Model
     public function getRouteKeyName()
     {
         return 'slug';
+    }
+
+    /**
+     * Get the options for generating the slug.
+     */
+    public function getSlugOptions(): SlugOptions
+    {
+        return SlugOptions::create()
+            ->generateSlugsFrom('title')
+            ->saveSlugsTo('slug');
     }
 
     /**
@@ -43,18 +54,21 @@ class Post extends Model
         return $this->hasMany(Comment::class);
     }
 
-    public static function new(...$data)
+    /**
+     * Store a new post.
+     *
+     * @param  \App\Models\User  $user
+     * @param  array  $params
+     *
+     * @return \App\Models\Post
+     */
+    public function storePost(User $user, array $params)
     {
-        return new static(...$data);
-    }
-
-    public static function createFromRequest(array $data)
-    {
-        if ($user = static::create($data)) {
-            return $user;
-        }
-
-        return null;
+        return $user->posts()->create([
+            'title' => $params['title'],
+            'body' => $params['body'],
+            'active' => 1,
+        ]);
     }
 
     /**

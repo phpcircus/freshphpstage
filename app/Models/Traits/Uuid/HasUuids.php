@@ -1,11 +1,22 @@
 <?php
 
-namespace App\Models\Traits;
+namespace App\Models\Traits\Uuid;
 
 use Ramsey\Uuid\Uuid;
+use Illuminate\Database\Eloquent\Model;
 
 trait HasUuids
 {
+    /**
+     * Boot the trait.
+     */
+    protected static function bootHasUuids()
+    {
+        static::creating(function (Model $model) {
+            $model->generateUuid();
+        });
+    }
+
     /**
      * There is no Uuid associated with the instance.
      *
@@ -28,14 +39,13 @@ trait HasUuids
 
     /**
      * Generate a Uuid for a model.
-     *
-     * @return Uuid
      */
-    public function generateUuid(): Uuid
+    public function generateUuid()
     {
-        return tap(Uuid::uuid4(), function ($uuid) {
-            $this->uuid = $uuid;
-            $this->save();
-        });
+        if (! $this->needsUuid()) {
+            return;
+        }
+
+        $this->uuid = Uuid::uuid4();
     }
 }
