@@ -20,7 +20,7 @@
                         </dropdown>
                     </div>
                     <div class="flex w-full h-20 bg-white bg-tictac border-b p-4 px-4 py-8 md:px-12 text-sm md:text-base justify-between items-center relative">
-                        <div>
+                        <div v-if="shouldShowSearch()">
                             <search-box class="absolute top-0 left-0 mt-8 ml-4 md:mt-6 md:ml-12 z-10" />
                         </div>
                         <div class="mt-1 mr-4">&nbsp;</div>
@@ -64,6 +64,7 @@
     import Dropdown from '@/Shared/Dropdown';
     import MainMenu from '@/Shared/MainMenu';
     import SearchBox from '@/Shared/SearchBox';
+    import ParsesUrls from 'Mixins/ParsesUrls';
     import SocialLinks from '@/Shared/SocialLinks';
     import HasNotifications from 'Mixins/HasNotifications';
 
@@ -76,7 +77,7 @@
             SearchBox,
             SocialLinks,
         },
-        mixins: [ HasNotifications ],
+        mixins: [ HasNotifications, ParsesUrls ],
         props: {
             title: String,
         },
@@ -100,6 +101,9 @@
             },
             hideDropdownMenus () {
                 this.showUserMenu = false;
+            },
+            shouldShowSearch () {
+                return ! this.pathEndsWith('create') && ! this.pathEndsWith('edit');
             },
         },
     }
