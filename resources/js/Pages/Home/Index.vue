@@ -1,6 +1,6 @@
 <template>
     <layout title="Home">
-        <h1 class="w-300p uppercase text-3xl font-medium text-blue-900 border-b border-gray-600 pb-4 pt-4 mb-8">
+        <h1 class="w-2/3 uppercase text-3xl font-medium text-blue-900 border-b border-gray-600 pb-4 pt-4 mb-8">
             Latest Posts
         </h1>
         <div v-if="posts.length > 0">

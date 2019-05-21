@@ -1,6 +1,6 @@
 <template>
     <layout title="Posts">
-        <h1 class="uppercase text-3xl font-medium text-blue-900 border-b border-gray-600 pb-4 pt-4 mb-8">
+        <h1 class="w-2/3 uppercase text-2xl md:text-3xl font-medium text-blue-900 border-b border-gray-600 pb-4 pt-4 mb-8">
             <inertia-link class="text-blue-500 hover:text-blue-700" :href="route('posts')">Posts</inertia-link>
             <span class="text-blue-500 font-medium">/</span>
             {{ post.title }}

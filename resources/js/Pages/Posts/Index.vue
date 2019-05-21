@@ -1,6 +1,6 @@
 <template>
     <layout title="Posts">
-        <h1 class="uppercase text-3xl font-medium text-blue-900 border-b border-gray-600 pb-4 pt-4 mb-8">
+        <h1 class="w-2/3 uppercase text-3xl font-medium text-blue-900 border-b border-gray-600 pb-4 pt-4 mb-8">
             Posts
         </h1>
         <div v-if="posts.data.length > 0">
@@ -15,7 +15,7 @@
             <h2 class="font-medium text-lg mb-2 md:text-xl tracking-wide">No Posts Available</h2>
         </div>
         <div v-if="posts.data.length > 0">
-            <pagination :links="posts.links" />
+            <pagination :links="posts.links" class="w-300p"/>
         </div>
     </layout>
 </template>
