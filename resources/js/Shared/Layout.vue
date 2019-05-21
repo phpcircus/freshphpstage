@@ -19,9 +19,9 @@
                             </div>
                         </dropdown>
                     </div>
-                    <div class="flex w-full h-20 bg-white border-b p-4 px-4 py-8 md:px-12 text-sm md:text-base justify-between items-center relative">
+                    <div class="flex w-full h-20 bg-white bg-tictac border-b p-4 px-4 py-8 md:px-12 text-sm md:text-base justify-between items-center relative">
                         <div>
-                            <search-box class="absolute top-0 left-0 mt-8 ml-4 md:mt-6 md:ml-12" />
+                            <search-box class="absolute top-0 left-0 mt-8 ml-4 md:mt-6 md:ml-12 z-10" />
                         </div>
                         <div class="mt-1 mr-4">&nbsp;</div>
                         <dropdown v-if="$page.auth.user" class="mt-1 md:ml-auto " placement="bottom-end">
@@ -44,7 +44,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="flex flex-grow w-full">
+                <div class="flex flex-grow w-full relative">
+                    <social-links />
                     <div class="overflow-hidden px-4 py-8 md:p-12 w-full">
                         <slot />
                     </div>
@@ -60,6 +61,7 @@
     import Dropdown from '@/Shared/Dropdown';
     import MainMenu from '@/Shared/MainMenu';
     import SearchBox from '@/Shared/SearchBox';
+    import SocialLinks from '@/Shared/SocialLinks';
     import HasNotifications from 'Mixins/HasNotifications';
 
     export default {
@@ -69,6 +71,7 @@
             Logo,
             MainMenu,
             SearchBox,
+            SocialLinks,
         },
         mixins: [ HasNotifications ],
         props: {
