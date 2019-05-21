@@ -42,6 +42,7 @@ Route::put('users/{user}/restore', User\RestoreUser::class)->middleware('auth')-
 // Posts
 Route::get('posts', Post\ListPosts::class)->name('posts');
 Route::get('posts/create', Post\CreatePost::class)->middleware('auth')->name('posts.create');
+Route::post('posts', Post\StorePost::class)->middleware('auth')->name('posts.store');
 Route::get('posts/{post}', Post\ShowPost::class)->name('post.show');
 
 // About

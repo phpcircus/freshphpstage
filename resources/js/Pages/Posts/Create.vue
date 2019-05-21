@@ -8,7 +8,7 @@
             <form class="w-3/4" @submit.prevent="submit">
                 <div class="p-8 -mr-6 -mb-8 flex flex-col">
                     <text-input v-model="form.title" :errors="errors.title" class="pr-6 pb-8 w-full lg:w-1/2" label="Post Title" />
-                    <vue-trix v-model="editorContent" class="post-content" placeholder="Enter content" @trix-attachment-add="storeAttachment" />
+                    <vue-trix v-model="form.body" class="post-content" placeholder="Enter content" @trix-attachment-add="storeAttachment" />
                 </div>
                 <div class="px-8 py-4 bg-gray-100 border-t border-gray-200 flex justify-end items-center">
                     <loading-button :loading="sending" class="btn-blue" type="submit">Create Post</loading-button>
@@ -41,10 +41,9 @@ export default {
     data () {
         return {
             sending: false,
-            editorContent: '',
             form: {
                 title: null,
-                description: null,
+                body: null,
             },
         }
     },
@@ -55,12 +54,12 @@ export default {
             .then(() => this.sending = false)
         },
         storeAttachment (event) {
-            let img = new Image();
-            img.onload = () => {
-                console.log('size:', img.width + ', ' + img.height );
-            };
-            let file = event.attachment.file;
-            console.log(event);
+            // let img = new Image();
+            // img.onload = () => {
+            //     console.log('size:', img.width + ', ' + img.height );
+            // };
+            // let file = event.attachment.file;
+            // console.log(event);
         },
     },
 }
