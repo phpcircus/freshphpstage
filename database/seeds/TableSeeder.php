@@ -34,6 +34,7 @@ class TableSeeder extends Seeder
             'name' => config('auth.admin.name'),
             'email' => config('auth.admin.email'),
             'password' => bcrypt(config('auth.admin.password')),
+            'is_admin' => true,
             'uuid' => Uuid::uuid4(),
         ]);
     }

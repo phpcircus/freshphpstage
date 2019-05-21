@@ -33,7 +33,10 @@
                             </div>
                             <div slot="dropdown" class="mt-2 py-2 shadow-lg bg-white rounded text-sm">
                                 <inertia-link class="block px-6 py-2 hover:bg-blue-500 hover:text-white" :href="route('users.edit', $page.auth.user.id)">My Profile</inertia-link>
-                                <inertia-link class="block px-6 py-2 hover:bg-blue-500 hover:text-white" :href="route('users')">Manage Users</inertia-link>
+                                <div v-if="$page.auth.user.is_admin">
+                                    <inertia-link class="block px-6 py-2 hover:bg-blue-500 hover:text-white" :href="route('users')">Manage Users</inertia-link>
+                                    <inertia-link class="block px-6 py-2 hover:bg-blue-500 hover:text-white" :href="route('posts.create')">New Post</inertia-link>
+                                </div>
                                 <inertia-link class="block px-6 py-2 hover:bg-blue-500 hover:text-white" :href="route('logout')" method="post">Logout</inertia-link>
                             </div>
                         </dropdown>
