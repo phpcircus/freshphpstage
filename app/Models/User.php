@@ -19,6 +19,9 @@ class User extends Authenticatable implements AuthorizableContract, MustVerifyEm
     /** @var int */
     protected $perPage = 10;
 
+    /** @var array */
+    protected $casts = ['is_admin' => 'boolean'];
+
     /**
      * A user has many posts.
      *
