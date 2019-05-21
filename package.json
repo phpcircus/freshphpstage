@@ -42,6 +42,7 @@
         "vue-snotify": "^3.2.1",
         "vue-stash": "^2.0.1-beta",
         "vue-template-compiler": "^2.6.10",
-        "vue-the-mask": "^0.11.1"
+        "vue-the-mask": "^0.11.1",
+        "vue-trix": "^0.8.2"
     }
 }
