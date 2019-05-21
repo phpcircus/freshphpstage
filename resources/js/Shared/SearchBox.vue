@@ -3,8 +3,8 @@
         <div class="flex">
             <input v-model="query" class="w-260p md:w-300p border-2 border-blue-500 px-2 py-1 md:py-2 rounded -mt-1 shadow" placeholder="Search posts…" type="text" @input="performSearch">
         </div>
-        <div v-if="query.length" class="border-2 border-gray-300 mt-1">
-            <ul v-if="hits.length" class="list-reset bg-white">
+        <div v-if="query && query.length" class="border-2 border-gray-300 mt-1">
+            <ul v-if="hits && hits.length" class="list-reset bg-white">
                 <li v-for="hit in hits" :key="hit.id" class="border-b border-gray-300 text-left py-4 px-2">
                     <inertia-link :href="'/posts/'+hit.slug" class="hit text-xl font-light text-gray-800 hover:text-gray-600 no-underline break-normal" v-html="sanitize(hit._highlightResult.title.value)" />
                 </li>

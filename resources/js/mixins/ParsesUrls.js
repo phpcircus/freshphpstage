@@ -8,5 +8,8 @@ export default {
 
             return urls.filter(url => location.pathname.substr(1).startsWith(url)).length;
         },
+        pathEndsWith (end) {
+            return location.pathname.endsWith(end);
+        },
     }
 }
