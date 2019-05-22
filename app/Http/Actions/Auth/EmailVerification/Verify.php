@@ -32,7 +32,7 @@ class Verify extends Action
 
         throw_unless($request->targetUserIsSelf(), AuthorizationException::class);
 
-        redirect_if($user->hasVerifiedEmail(), route('home'), ['warning' => 'User already verified.']);
+        redirect_if($user->hasVerifiedEmail(), route('home'), ['info' => 'User already verified.']);
 
         if ($user->markEmailAsVerified()) {
             event(new Verified($user));

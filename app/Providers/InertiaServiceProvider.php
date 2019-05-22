@@ -40,6 +40,11 @@ class InertiaServiceProvider extends ServiceProvider
                 'warning' => Session::get('warning'),
             ];
         });
+        Inertia::share('info', function () {
+            return [
+                'info' => Session::get('info'),
+            ];
+        });
         Inertia::share('auth.user', static function () {
             if ($user = Auth::user()) {
                 return [
