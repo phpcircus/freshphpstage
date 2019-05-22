@@ -59,7 +59,7 @@ class Request
                 : (request()->route('id') ? request()->route('id') : null);
 
             if (request()->user() && $routeId) {
-                return $routeId === request()->user()->getKey();
+                return (int) $routeId === request()->user()->getKey();
             }
 
             return false;
