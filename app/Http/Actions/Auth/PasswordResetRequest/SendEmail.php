@@ -4,29 +4,10 @@ namespace App\Http\Actions\Auth\PasswordResetRequest;
 
 use Illuminate\Http\Request;
 use PerfectOblivion\Actions\Action;
-use Illuminate\Auth\Passwords\PasswordBroker;
-use Illuminate\Auth\Passwords\PasswordBrokerManager;
+use Illuminate\Support\Facades\Password;
 
 class SendEmail extends Action
 {
-    /** @var \Illuminate\Auth\Passwords\PasswordBrokerManager */
-    private $brokerManager;
-
-    /** @var \Illuminate\Auth\Passwords\PasswordBroker */
-    private $broker;
-
-    /**
-     * Construct a new SendEmail action.
-     *
-     * @param  \Illuminate\Auth\Passwords\PasswordBrokerManager  $brokerManager
-     * @param  \Illuminate\Auth\Passwords\PasswordBroker  $broker
-     */
-    public function __construct(PasswordBrokerManager $brokerManager, PasswordBroker $broker)
-    {
-        $this->$brokerManager = $brokerManager;
-        $this->broker = $broker;
-    }
-
     /**
      * Send a reset link to the given user.
      */
@@ -38,7 +19,7 @@ class SendEmail extends Action
             $request->only('email')
         );
 
-        return $this->broker::RESET_LINK_SENT === $response
+        return Password::RESET_LINK_SENT === $response
             ? $this->sendResetLinkResponse($request, $response)
             : $this->sendResetLinkFailedResponse($request, $response);
     }
@@ -86,6 +67,6 @@ class SendEmail extends Action
      */
     public function broker()
     {
-        return $this->brokerManager->broker();
+        return Password::broker();
     }
 }

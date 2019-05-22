@@ -24,7 +24,9 @@ export default {
     },
     mounted () {
         if (this.$page.success.success) {
-            this.$snotify.success(this.$page.success.success, 'Success!');
+            this.$snotify.success(this.$page.success.success, 'Success!').on('destroyed', () => {
+                console.log('toast destroyed');
+            });
         }
 
         if (this.$page.warning.warning) {

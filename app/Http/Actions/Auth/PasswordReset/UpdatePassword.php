@@ -58,7 +58,6 @@ class UpdatePassword extends Action
     public function __invoke(Request $request)
     {
         $request->validate($this->rules(), $this->validationErrorMessages());
-
         $response = $this->broker()->reset(
             $request->credentials('email', 'password', 'password_confirmation', 'token'),
             function ($user, $password) {
@@ -130,7 +129,7 @@ class UpdatePassword extends Action
      */
     protected function sendResetResponse(Request $request, $response)
     {
-        return redirect($this->redirectPath())->with(['success' => trans($response)]);
+        return redirect()->route('home')->with(['success' => trans($response)]);
     }
 
     /**
@@ -145,7 +144,7 @@ class UpdatePassword extends Action
     {
         return redirect()->back()
             ->withInput($request->only('email'))
-            ->withErrors(['email' => trans($response)]);
+            ->withErrors($this->translateResponseIntoErrors($response));
     }
 
     /**
@@ -166,5 +165,25 @@ class UpdatePassword extends Action
     protected function guard()
     {
         return $this->auth->guard();
+    }
+
+    /**
+     * Translate the broker response into an errors array.
+     *
+     * @param  string  $response
+     *
+     * @return array
+     */
+    public function translateResponseIntoErrors(string $response)
+    {
+        if ('passwords.token' === $response) {
+            return ['token' => trans($response)];
+        }
+        if ('passwords.user' === $response) {
+            return ['email' => trans($response)];
+        }
+        if ('passwords.password' === $response) {
+            return ['password' => trans($response)];
+        }
     }
 }
