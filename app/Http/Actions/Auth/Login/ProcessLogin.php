@@ -86,7 +86,7 @@ class ProcessLogin extends Action
         $this->clearLoginAttempts($request);
 
         return $this->authenticated($request, $this->guard()->user())
-            ?: redirect()->intended($this->redirectPath());
+            ?: redirect()->intended(route('home'));
     }
 
     /**
