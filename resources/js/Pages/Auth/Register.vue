@@ -13,7 +13,7 @@
                         <text-input v-model="form.password_confirmation" class="mt-6" label="Confirm Password" type="password" />
                     </div>
                     <div class="px-10 py-4 bg-gray-100 border-t border-gray-200 flex justify-between items-center">
-                        <a class="hover:underline" tabindex="-1" href="#">Already Registered?</a>
+                        <inertia-link class="hover:underline" tabindex="-1" href="#">Already Registered?</inertia-link>
                         <loading-button :loading="sending" class="btn-blue" type="submit">Register</loading-button>
                     </div>
                 </form>

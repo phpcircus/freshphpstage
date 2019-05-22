@@ -15,7 +15,7 @@
                         </label>
                     </div>
                     <div class="px-10 py-4 bg-gray-100 border-t border-gray-200 flex justify-between items-center">
-                        <a class="hover:underline" tabindex="-1" :href="route('password.request.form')">Forgot password?</a>
+                        <inertia-link class="hover:underline" tabindex="-1" :href="route('password.request.form')">Forgot password?</inertia-link>
                         <loading-button :loading="sending" class="btn-blue" type="submit">Login</loading-button>
                     </div>
                 </form>
