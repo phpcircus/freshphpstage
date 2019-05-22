@@ -42,6 +42,7 @@
                         </dropdown>
                         <div v-else class="flex items-center select-none">
                             <div class="whitespace-no-wrap">
+                                <inertia-link class="text-gray-900 hover:text-blue-600 inline font-semibold uppercase mr-4" :href="route('register.form')">Register</inertia-link>
                                 <inertia-link class="text-gray-900 hover:text-blue-600 inline font-semibold uppercase" :href="route('login.form')">Login</inertia-link>
                             </div>
                         </div>
