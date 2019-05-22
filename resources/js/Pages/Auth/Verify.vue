@@ -24,9 +24,10 @@
 </template>
 
 <script>
+    import Logo from '@/Shared/Logo';
     import BlankLayout from '@/Shared/BlankLayout';
 
     export default {
-        components: { BlankLayout },
+        components: { BlankLayout, Logo },
     }
 </script>
