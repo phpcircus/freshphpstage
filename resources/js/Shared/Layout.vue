@@ -56,6 +56,7 @@
                 </div>
             </div>
         </div>
+        <site-footer />
     </div>
 </template>
 
@@ -65,6 +66,7 @@
     import Dropdown from '@/Shared/Dropdown';
     import MainMenu from '@/Shared/MainMenu';
     import SearchBox from '@/Shared/SearchBox';
+    import SiteFooter from '@/Shared/SiteFooter';
     import SocialLinks from '@/Shared/SocialLinks';
     import FlashMessage from '@/Shared/FlashMessage';
 
@@ -77,6 +79,7 @@
             SearchBox,
             SocialLinks,
             FlashMessage,
+            SiteFooter,
         },
         props: {
             title: String,
