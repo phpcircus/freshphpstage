@@ -17,10 +17,10 @@ class ResendVerify extends BaseVerification
     {
         $user = $request->user();
 
-        redirect_if($user->hasVerifiedEmail(), $this->redirectPath(), ['notification' => 'User already verified.']);
+        redirect_if($user->hasVerifiedEmail(), $this->redirectPath(), ['warning' => 'User already verified.']);
 
         $user->sendEmailVerificationNotification();
 
-        return back()->with(['notification' => 'The verification email has been resent.']);
+        return back()->with(['success' => 'The verification email has been resent.']);
     }
 }

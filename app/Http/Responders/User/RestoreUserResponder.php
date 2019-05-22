@@ -13,6 +13,6 @@ class RestoreUserResponder extends Responder
      */
     public function respond()
     {
-        return redirect()->back()->with(['notification' => 'User restored!']);
+        return redirect()->back()->with(['success' => 'User restored!']);
     }
 }

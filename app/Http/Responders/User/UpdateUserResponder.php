@@ -13,6 +13,6 @@ class UpdateUserResponder extends Responder
      */
     public function respond()
     {
-        return redirect()->back()->with(['notification' => 'User information updated!']);
+        return redirect()->back()->with(['success' => 'User information updated!']);
     }
 }

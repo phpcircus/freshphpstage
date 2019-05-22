@@ -60,7 +60,9 @@ export default {
         submit () {
             this.sending = true;
             this.$inertia.put(this.route('users.update', this.user.id), this.form)
-            .then(() => this.sending = false)
+            .then(() => {
+                this.sending = false;
+             });
         },
         destroy () {
             if (confirm('Are you sure you want to delete this user?')) {

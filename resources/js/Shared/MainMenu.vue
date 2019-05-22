@@ -23,13 +23,11 @@
 
 <script>
 import Icon from '@/Shared/Icon';
-import ParsesUrls from 'Mixins/ParsesUrls';
 
 export default {
     components: {
         Icon,
     },
-    mixins: [ ParsesUrls ],
     props: {
         display: {
             type: String,
