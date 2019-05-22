@@ -63,7 +63,7 @@ class SendEmail extends Action
      */
     protected function sendResetLinkResponse(Request $request, $response)
     {
-        return redirect()->back()->with(['notification' => trans($response)]);
+        return redirect()->back()->with(['success' => trans($response)]);
     }
 
     /**

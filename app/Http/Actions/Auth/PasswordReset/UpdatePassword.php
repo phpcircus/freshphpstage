@@ -130,7 +130,7 @@ class UpdatePassword extends Action
      */
     protected function sendResetResponse(Request $request, $response)
     {
-        return redirect($this->redirectPath())->with(['notification' => trans($response)]);
+        return redirect($this->redirectPath())->with(['success' => trans($response)]);
     }
 
     /**

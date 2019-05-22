@@ -30,11 +30,15 @@ class InertiaServiceProvider extends ServiceProvider
         Inertia::share('errors', static function () {
             return Session::get('errors') ? Session::get('errors')->getBag('default')->getMessages() : (object) [];
         });
-        Inertia::share('notification', static function () {
-            return Session::get('notification') ? Session::get('notification') : (string) '';
+        Inertia::share('success', function () {
+            return [
+                'success' => Session::get('success'),
+            ];
         });
-        Inertia::share('warning', static function () {
-            return Session::get('warning') ? Session::get('warning') : (string) '';
+        Inertia::share('warning', function () {
+            return [
+                'warning' => Session::get('warning'),
+            ];
         });
         Inertia::share('auth.user', static function () {
             if ($user = Auth::user()) {

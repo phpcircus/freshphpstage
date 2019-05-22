@@ -43,5 +43,8 @@ class ProcessLogout extends Action
      */
     protected function loggedOut(Request $request)
     {
+        dump('here');
+
+        return redirect()->route('home')->with(['success' => 'Logged out!']);
     }
 }

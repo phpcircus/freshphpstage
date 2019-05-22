@@ -9,11 +9,9 @@ import ParsesUrls from 'Mixins/ParsesUrls';
 import Dispatchable from 'Mixins/Dispatchable';
 import VueInstantSearch from 'vue-instantsearch';
 import Snotify, { SnotifyPosition } from 'vue-snotify';
-import HasNotifications from 'Mixins/HasNotifications';
 
 // Use mixins
 Vue.mixin({ methods: { route: (...args) => window.route(...args).url() } });
-Vue.mixin(HasNotifications);
 Vue.mixin(Dispatchable);
 Vue.mixin(ParsesUrls);
 Vue.mixin(Dates);
@@ -28,7 +26,7 @@ Vue.use(PortalVue);
 Vue.use(VueStash);
 
 // Use Vue-Modal
-Vue.use(VModal, { componentName: "modal-component" });
+Vue.use(VModal, { componentName: 'modal-component' });
 
 // Use Snotify for notifications
 Vue.use(Snotify, {
@@ -37,7 +35,7 @@ Vue.use(Snotify, {
         timeout: 3000,
         showProgressBar: true,
         closeOnClick: false,
-        pauseOnHover: true
+        pauseOnHover: true,
     }
 });
 
@@ -53,6 +51,7 @@ Vue.config.productionTip = false;
 let app = document.getElementById('app');
 
 new Vue({
+    data: { store },
     render: h => h(Inertia, {
         props: {
             initialPage: JSON.parse(app.dataset.page),
@@ -61,5 +60,4 @@ new Vue({
             },
         },
     }),
-    data: { store },
 }).$mount(app)

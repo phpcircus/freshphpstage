@@ -17,7 +17,7 @@ class ShowVerification extends BaseVerification
     public function __invoke(Request $request)
     {
         return $request->user()->hasVerifiedEmail()
-                        ? redirect($this->redirectPath())
+                        ? redirect($this->redirectPath())->with(['success' => 'User verified!'])
                         : Inertia::render('Auth/Verify');
     }
 }

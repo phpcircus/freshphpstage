@@ -1,16 +1,16 @@
 <template>
     <div>
-        <vue-snotify />
+        <flash-message />
         <slot />
     </div>
 </template>
 
 <script>
-    import HasNotifications from 'Mixins/HasNotifications';
+import FlashMessage from '@/Shared/FlashMessage';
 
-    export default {
-        mixins: [ HasNotifications ],
-    }
+export default {
+    components: { FlashMessage },
+}
 </script>
 
 <style>

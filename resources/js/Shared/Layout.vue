@@ -1,7 +1,7 @@
 <template>
     <div>
         <portal-target name="dropdown" slim />
-        <vue-snotify />
+        <flash-message />
         <div class="flex flex-col">
             <div class="min-h-screen flex flex-col" @click="hideDropdownMenus">
                 <div class="flex flex-wrap">
@@ -64,9 +64,8 @@
     import Dropdown from '@/Shared/Dropdown';
     import MainMenu from '@/Shared/MainMenu';
     import SearchBox from '@/Shared/SearchBox';
-    import ParsesUrls from 'Mixins/ParsesUrls';
     import SocialLinks from '@/Shared/SocialLinks';
-    import HasNotifications from 'Mixins/HasNotifications';
+    import FlashMessage from '@/Shared/FlashMessage';
 
     export default {
         components: {
@@ -76,8 +75,8 @@
             MainMenu,
             SearchBox,
             SocialLinks,
+            FlashMessage,
         },
-        mixins: [ HasNotifications, ParsesUrls ],
         props: {
             title: String,
         },

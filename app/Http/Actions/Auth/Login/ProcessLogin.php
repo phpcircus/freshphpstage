@@ -99,6 +99,7 @@ class ProcessLogin extends Action
      */
     protected function authenticated(Request $request, $user)
     {
+        return redirect()->route('home')->with(['success' => 'Logged in!']);
     }
 
     /**

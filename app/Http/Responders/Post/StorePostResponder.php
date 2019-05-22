@@ -13,6 +13,6 @@ class StorePostResponder extends Responder
      */
     public function respond()
     {
-        return redirect('/')->with(['notification' => 'Post created!']);
+        return redirect('/')->with(['success' => 'Post created!']);
     }
 }
