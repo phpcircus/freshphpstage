@@ -3,9 +3,18 @@
 namespace App\Http\Actions\Auth\EmailVerification;
 
 use Illuminate\Http\Request;
+use PerfectOblivion\Actions\Action;
 
-class ResendVerify extends BaseVerification
+class ResendVerify extends Action
 {
+    /**
+     * Create a new controller instance.
+     */
+    public function __construct()
+    {
+        $this->middleware('throttle:6,1');
+    }
+
     /**
      * Resend the email verification email.
      *
@@ -17,7 +26,7 @@ class ResendVerify extends BaseVerification
     {
         $user = $request->user();
 
-        redirect_if($user->hasVerifiedEmail(), $this->redirectPath(), ['warning' => 'User already verified.']);
+        redirect_if($user->hasVerifiedEmail(), route('home'), ['warning' => 'User already verified.']);
 
         $user->sendEmailVerificationNotification();
 
