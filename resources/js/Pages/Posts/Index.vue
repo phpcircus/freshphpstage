@@ -4,7 +4,7 @@
             Posts
         </h1>
         <div v-if="posts.data.length > 0" class="w-full md:w-1/2">
-            <div v-for="post in posts.data" :key="post.id" class="py-8 mb-8 border-b-4 border-gray-300">
+            <div v-for="post in posts.data" :key="post.id" class="py-8 border-b-4 border-gray-300">
                 <h2 class="font-medium text-2xl mb-2 md:text-3xl tracking-wide">
                     <inertia-link :href="route('post.show', post.slug)" class="text-blue-900 hover:text-blue-500 no-underline">{{ post.title }}</inertia-link>
                 </h2>

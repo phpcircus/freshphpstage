@@ -100,6 +100,7 @@ module.exports = {
     variants: {
         textColor: ['responsive', 'hover', 'focus', 'group-hover'],
         fill: ['hover', 'focus', 'group-hover'],
+        width: ['responsive'],
     },
     plugins: [
         require('./resources/js/lib/tailwindcss/plugins/tables')(),
