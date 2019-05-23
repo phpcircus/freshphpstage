@@ -33,6 +33,7 @@
         "semi": "off",
         "space-before-function-paren": ["error", "always"],
         "valid-typeof": "warn",
+        "vue/no-v-html": 0,
         "vue/html-indent": ["error", 4],
         "vue/max-attributes-per-line": false,
         "vue/require-default-prop": false,

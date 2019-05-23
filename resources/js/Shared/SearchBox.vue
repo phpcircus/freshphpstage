@@ -6,7 +6,7 @@
         <div v-if="query && query.length" class="border-2 border-gray-300 mt-1">
             <ul v-if="hits && hits.length" class="list-reset bg-white">
                 <li v-for="hit in hits" :key="hit.id" class="border-b border-gray-300 text-left py-4 px-2">
-                    <inertia-link :href="'/posts/'+hit.slug" class="hit text-xl font-light text-gray-800 hover:text-gray-600 no-underline break-normal" v-html="sanitize(hit._highlightResult.title.value)" />
+                    <inertia-link :href="`posts/${hit.slug}`" class="hit text-xl font-light text-gray-800 hover:text-gray-600 no-underline break-normal" v-html="sanitize(hit._highlightResult.title.value)" />
                 </li>
             </ul>
             <ul v-else class="list-reset bg-white">
