@@ -2,24 +2,23 @@
     <footer class="bg-blue-500 text-gray-100 px-4 md:px-12 pt-0 pb-4 mt-0">
         <div class="container mx-auto pt-8">
             <div class="flex flex-wrap mb-6 px-4">
-                <!--Col 1-->
                 <div class="w-full md:w-1/4 text-center md:text-left px-3 mb-2 md:mb-0 pb-3 sm:pb-0">
                     <p class="text-white font-bold text-4xl my-6">PHPStage</p>
-                    <p class="text-gray-200 font-normal text-sm my-3">maintained by: &nbsp;<a class="text-blue-900 font-medium hover:text-blue-200" href="https://github.com/devcircus">Clayton Stone</a></p>
+                    <p class="text-gray-200 font-normal text-sm my-3">maintained by: &nbsp;<a class="text-blue-900 font-medium hover:text-blue-200" href="https://github.com/devcircus/">Clayton Stone</a></p>
+                    <p class="text-gray-200 font-normal text-sm my-3">site search by: &nbsp;<a class="text-blue-900 font-medium hover:text-blue-200" href="https://algolia.com/">Algolia</a></p>
+                    <p class="text-gray-200 font-normal text-sm my-3">base template: &nbsp;<a class="text-blue-900 font-medium hover:text-blue-200" href="https://github.com/inertiajs/pingcrm">PingCRM</a></p>
                 </div>
-                <!--Col 2-->
                 <div class="w-full md:w-1/4 text-center md:text-left px-3 sm:px-1 mb-2 md:mb-0 pb-3 sm:pb-0">
                     <p class="text-white font-medium text-xl my-6">Some awesome blogs:</p>
                     <ul>
-                        <li class="mb-3"><a class="text-blue-900 text-lg font-medium hover:text-blue-200" href="https://stitcher.io/blog" target="_blank" rel="noopener">stitcher.io</a></li>
-                        <li class="mb-3"><a class="text-blue-900 text-lg font-medium hover:text-blue-200" href="https://sebastiandedeyne.com" target="_blank" rel="noopener">Sebastian De Deyne</a></li>
-                        <li class="mb-3"><a class="text-blue-900 text-lg font-medium hover:text-blue-200" href="https://adamwathan.me" target="_blank" rel="noopener">Adam Wathan</a></li>
-                        <li class="mb-3"><a class="text-blue-900 text-lg font-medium hover:text-blue-200" href="https://miguelpiedrafita.com" target="_blank" rel="noopener">Miguel Piedrafita</a></li>
-                        <li class="mb-3"><a class="text-blue-900 text-lg font-medium hover:text-blue-200" href="https://blog.laravel.com" target="_blank" rel="noopener">Official Laravel Blog</a></li>
-                        <li class="mb-3"><a class="text-blue-900 text-lg font-medium hover:text-blue-200" href="https://murze.be" target="_blank" rel="noopener">Murze.be</a></li>
+                        <li class="mb-3"><a class="text-blue-900 text-lg font-medium hover:text-blue-200" href="https://stitcher.io/blog/" target="_blank" rel="noopener">stitcher.io</a></li>
+                        <li class="mb-3"><a class="text-blue-900 text-lg font-medium hover:text-blue-200" href="https://sebastiandedeyne.com/" target="_blank" rel="noopener">Sebastian De Deyne</a></li>
+                        <li class="mb-3"><a class="text-blue-900 text-lg font-medium hover:text-blue-200" href="https://adamwathan.me/" target="_blank" rel="noopener">Adam Wathan</a></li>
+                        <li class="mb-3"><a class="text-blue-900 text-lg font-medium hover:text-blue-200" href="https://miguelpiedrafita.com/" target="_blank" rel="noopener">Miguel Piedrafita</a></li>
+                        <li class="mb-3"><a class="text-blue-900 text-lg font-medium hover:text-blue-200" href="https://blog.laravel.com/" target="_blank" rel="noopener">Official Laravel Blog</a></li>
+                        <li class="mb-3"><a class="text-blue-900 text-lg font-medium hover:text-blue-200" href="https://murze.be/" target="_blank" rel="noopener">Murze.be</a></li>
                     </ul>
                 </div>
-                <!--Col 3-->
                 <div class="w-full md:w-1/4 text-center md:text-left px-3 sm:px-1 mb-2 md:mb-0 pb-3 sm:pb-0">
                     <p class="text-white font-medium text-xl my-6">"Do not miss" dev podcasts:</p>
                     <ul>
@@ -35,7 +34,6 @@
                         <li class="mb-3"><a class="text-blue-900 text-lg font-medium hover:text-blue-200" href="https://laravel-news.com/podcast" target="_blank" rel="noopener">The Laravel News Podcast</a></li>
                     </ul>
                 </div>
-                <!--Col 4-->
                 <div class="w-full md:w-1/4 text-center md:text-left px-3 sm:px-1 mb-2 md:mb-0 pb-3 sm:pb-0">
                     <p class="text-white font-medium text-xl my-6">Current dev tools:</p>
                     <ul>
