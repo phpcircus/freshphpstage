@@ -23,7 +23,7 @@
     "rules": {
         "comma-dangle": ["warn", "always-multiline"],
         "constructor-super": "warn",
-        "no-console": "off",
+        "no-console": 1,
         "no-const-assign": "warn",
         "no-this-before-super": "warn",
         "no-undef": "warn",
