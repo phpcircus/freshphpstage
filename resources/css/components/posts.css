@@ -34,13 +34,14 @@
 }
 
 .trix-content pre {
-    @apply .block bg-orange-200 rounded p-4 shadow;
+    @apply .block bg-orange-200 rounded shadow !important;
     overflow-x: auto;
 }
 
 .trix-content pre code {
-    @apply .block .pt-0 .pb-5 .px-2 .leading-normal .font-mono .text-sm .bg-gray-300 .min-w-full;
+    @apply .block .pt-0 .pb-5 .px-2 .leading-normal .font-mono .text-sm .min-w-full;
     white-space: pre;
     overflow-x: auto;
+    background: none !important;
 }
 /* purgecss end ignore */
