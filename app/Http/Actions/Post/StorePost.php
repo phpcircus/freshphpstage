@@ -32,7 +32,7 @@ class StorePost extends Action
     public function __invoke(Request $request)
     {
         return $this->responder->withPayload(
-            StorePostService::call($request->only(['title', 'body']))
+            StorePostService::call($request->only(['title', 'summary', 'body']))
         );
     }
 }
