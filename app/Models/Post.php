@@ -66,6 +66,7 @@ class Post extends Model
     {
         return $user->posts()->create([
             'title' => $params['title'],
+            'summary' => $params['summary'],
             'body' => $params['body'],
             'active' => 1,
         ]);
