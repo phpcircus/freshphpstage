@@ -19,17 +19,17 @@
                             </div>
                         </dropdown>
                     </div>
-                    <div class="flex w-full h-20 bg-white bg-tictac border-b p-4 px-4 py-8 md:px-12 text-sm md:text-base justify-between items-center relative">
+                    <div class="flex w-full h-20 bg-white bg-tictac border-b shadow p-4 px-4 py-8 md:px-12 text-sm md:text-base justify-between items-center relative">
                         <div v-if="shouldShowSearch()">
                             <search-box class="absolute top-0 left-0 mt-8 ml-4 md:mt-6 md:ml-12 z-10" />
                         </div>
                         <div class="mt-1 mr-4">&nbsp;</div>
                         <dropdown v-if="$page.auth.user" class="mt-1 md:ml-auto " placement="bottom-end">
                             <div class="flex items-center cursor-pointer select-none group">
-                                <div class="text-gray-900 group-hover:text-blue-700 focus:text-blue-700 mr-1 whitespace-no-wrap">
+                                <div class="text-blue-900 group-hover:text-blue-700 focus:text-blue-700 mr-1 whitespace-no-wrap">
                                     <span class="inline">{{ $page.auth.user.name }}</span>
                                 </div>
-                                <icon class="w-5 h-5 group-hover:fill-blue-700 fill-gray-900 focus:fill-blue-700" name="cheveron-down" />
+                                <icon class="w-5 h-5 group-hover:fill-blue-700 fill-blue-900 focus:fill-blue-700" name="cheveron-down" />
                             </div>
                             <div slot="dropdown" class="mt-2 py-2 shadow-lg bg-white rounded text-sm">
                                 <inertia-link class="block px-6 py-2 hover:bg-blue-500 hover:text-white" :href="route('users.edit', $page.auth.user.id)">My Profile</inertia-link>
