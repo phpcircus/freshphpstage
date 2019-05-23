@@ -24,7 +24,7 @@
 }
 
 .trix-content ol li {
-    @apply .mb-4;
+    @apply .mb-4 .block !important;
     counter-increment: step-counter;
 }
 
