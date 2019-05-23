@@ -7,7 +7,7 @@
                 {{ post.title }}
             </h1>
             <span class="block text-base text-blue-500 italic -mt-4 mb-4">{{ post.createdAtDiff }}</span>
-            <div id="post-body" class="text-gray-800 text-base leading-normal" v-html="post.body" />
+            <div class="trix-content text-gray-800 text-base leading-normal" v-html="post.body" />
         </div>
     </layout>
 </template>
