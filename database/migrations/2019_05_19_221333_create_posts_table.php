@@ -16,6 +16,7 @@ class CreatePostsTable extends Migration
             $table->string('uuid')->index()->nullable();
             $table->string('slug')->index()->nullable();
             $table->string('title')->index();
+            $table->text('summary');
             $table->text('body');
             $table->boolean('active')->default(0);
             $table->bigInteger('user_id')->unsigned();

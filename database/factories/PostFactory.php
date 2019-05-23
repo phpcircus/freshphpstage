@@ -11,7 +11,8 @@ $factory->define(Post::class, function (Faker $faker) {
 
     return [
         'title' => $title,
-        'body' => $faker->sentence(12),
+        'summary' => $faker->paragraph(3),
+        'body' => $faker->paragraph(12),
         'uuid' => $uuid,
         'slug' => str_slug($title).'-'.$uuid->toString(),
         'user_id' => factory(User::class),

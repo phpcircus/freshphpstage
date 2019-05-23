@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\Traits\HasUuids;
+use App\Models\Traits\Uuid\HasUuids;
 
 class Comment extends Model
 {
