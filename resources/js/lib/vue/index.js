@@ -55,13 +55,15 @@ if (process.env.MIX_APP_ENV === 'production') {
 }
 
 let app = document.getElementById('app');
+const files = require.context('../../', true, /\.vue$/i);
 
 new Vue({
     data: { store },
     render: h => h(Inertia, {
         props: {
             initialPage: JSON.parse(app.dataset.page),
-            resolveComponent: name => import (`@/Pages/${name}`).then(module => module.default),
+            resolveComponent: page => files(`./Pages/${page}.vue`).default,
+            // resolveComponent: name => import (`@/Pages/${name}`).then(module => module.default),
         },
     }),
 }).$mount(app)
