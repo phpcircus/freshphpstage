@@ -1,0 +1,5 @@
+.v--modal-overlay[data-modal="modal-name"] .v--modal-box.v--modal {
+    opacity: 1;
+    overflow: visible;
+    top: 178px !important;
+}
