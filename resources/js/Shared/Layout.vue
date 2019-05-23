@@ -40,12 +40,6 @@
                                 <inertia-link class="block px-6 py-2 hover:bg-blue-500 hover:text-white" :href="route('logout')" method="post">Logout</inertia-link>
                             </div>
                         </dropdown>
-                        <div v-else class="flex items-center select-none">
-                            <div class="whitespace-no-wrap">
-                                <!-- <inertia-link class="text-blue-900 hover:text-blue-600 inline font-semibold uppercase mr-4" :href="route('register.form')">Register</inertia-link>
-                                <inertia-link class="text-blue-900 hover:text-blue-600 inline font-semibold uppercase" :href="route('login.form')">Login</inertia-link> -->
-                            </div>
-                        </div>
                     </div>
                 </div>
                 <div class="flex flex-grow w-full relative">

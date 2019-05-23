@@ -47,7 +47,13 @@ Vue.filter('ucase', function (value) {
     return value ? value.toUpperCase() : '';
 });
 
-Vue.config.productionTip = false;
+if (process.env.MIX_APP_ENV === 'production') {
+    Vue.config.devtools = false;
+    Vue.config.debug = false;
+    Vue.config.silent = true;
+    Vue.config.productionTip = false;
+}
+
 let app = document.getElementById('app');
 
 new Vue({
@@ -55,9 +61,7 @@ new Vue({
     render: h => h(Inertia, {
         props: {
             initialPage: JSON.parse(app.dataset.page),
-            resolveComponent: (name) => {
-                return import (`@/Pages/${name}`).then(module => module.default)
-            },
+            resolveComponent: name => import (`@/Pages/${name}`).then(module => module.default),
         },
     }),
 }).$mount(app)
