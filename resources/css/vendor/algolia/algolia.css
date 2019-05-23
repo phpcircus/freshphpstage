@@ -1,3 +1,4 @@
+/* purgecss start ignore */
 .ais-Breadcrumb-list,
 .ais-CurrentRefinements-list,
 .ais-HierarchicalMenu-list,
@@ -769,3 +770,4 @@ a[class^='ais-'] {
   color: #a5aed1;
   cursor: not-allowed;
   background: inherit; }
+/* purgecss end ignore */
