@@ -13,7 +13,6 @@
         },
         methods: {
             beforeOpen (event) {
-                console.log(event);
             },
         }
     }
