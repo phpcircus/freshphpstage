@@ -47,13 +47,3 @@ export default {
     },
 };
 </script>
-
-<style>
-.search-component {
-    z-index: 100;
-}
-a.hit em {
-    color: #4299E1;
-    font-weight: 600;
-}
-</style>

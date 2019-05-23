@@ -59,13 +59,3 @@ export default {
     },
 }
 </script>
-
-<style>
-.trix-button-row {
-    display: flex;
-    flex-wrap: wrap !important;
-}
-progress.attachment__progress {
-    display: none;
-}
-</style>
