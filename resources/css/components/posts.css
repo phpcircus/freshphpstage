@@ -1,3 +1,4 @@
+/* purgecss start ignore */
 .trix-content h1 {
     @apply .font-medium .tracking-wide .text-2xl .text-blue-900 .my-4 !important;
 }
@@ -42,3 +43,4 @@
     white-space: pre;
     overflow-x: auto;
 }
+/* purgecss end ignore */
