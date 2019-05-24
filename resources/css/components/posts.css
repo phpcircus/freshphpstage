@@ -1,5 +1,5 @@
 /* purgecss start ignore */
-.trix-content h1 {
+.trix-content h1, h2 {
     @apply .font-medium .tracking-wide .text-2xl .text-blue-900 .my-4 !important;
 }
 .trix-content p, .trix-content ol > li {
