@@ -5,11 +5,13 @@
             <span class="text-blue-300 font-medium">/</span> Create
         </h1>
         <div class="bg-white rounded shadow overflow-hidden w-full">
-            <form class="w-3/4" @submit.prevent="submit">
-                <div class="p-8 -mr-6 -mb-8 flex flex-col">
-                    <text-input v-model="form.title" :errors="errors.title" class="pr-6 pb-8 w-full lg:w-1/2" label="Post Title" />
-                    <textarea-input v-model="form.summary" :errors="errors.summary" class="pr-6 pb-8 w-full lg:w-1/2" rows="2" label="Post Summary" />
-                    <vue-trix v-model="form.body" placeholder="Enter content" />
+            <form class="w-full md:w-3/4" @submit.prevent="submit">
+                <div class="p-8 -mb-8 flex flex-col">
+                    <text-input v-model="form.title" :errors="errors.title" class="pb-8 w-full lg:w-1/2" label="Post Title" />
+                    <textarea-input v-model="form.summary" :errors="errors.summary" class="pb-8 w-full lg:w-1/2" rows="2" label="Post Summary" />
+                    <div class="w-full md:w-3/4">
+                        <vue-trix v-model="form.body" placeholder="Enter content" />
+                    </div>
                 </div>
                 <div class="px-8 py-4 bg-gray-100 border-t border-gray-200 flex justify-end items-center">
                     <loading-button :loading="sending" class="btn-blue" type="submit">Create Post</loading-button>
