@@ -5,7 +5,7 @@
 .trix-content p, .trix-content ol > li {
     @apply .text-xl .text-blue-800 .font-normal .tracking-normal !important;
 }
-.trix-content p a, .trix-content ol > li a {
+.trix-content p a, .trix-content a, .trix-content ol > li a {
     @apply .no-underline .text-blue-500 !important;
 }
 .trix-content blockquote {
