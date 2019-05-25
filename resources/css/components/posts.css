@@ -9,7 +9,7 @@
     @apply .no-underline .text-blue-500 !important;
 }
 .trix-content blockquote {
-    @apply .p-4 .mx-2 .my-2 .text-xl .text-blue-500 .border-l-4 .border-blue-300 .bg-white .rounded .shadow .inline !important;
+    @apply .p-4 .mx-2 .my-2 .text-xl .text-blue-500 .border-l-4 .border-blue-300 .rounded .inline !important;
     quotes: "\201C""\201D""\2018""\2019";
 }
 .trix-content blockquote:before {
