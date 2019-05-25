@@ -1,5 +1,5 @@
 /* purgecss start ignore */
-.trix-content h1, h2 {
+.trix-content h1, .trix-content h2 {
     @apply .font-medium .tracking-wide .text-2xl .text-blue-900 .my-4 !important;
 }
 .trix-content, .trix-content p, .trix-content ol > li {
@@ -43,5 +43,9 @@
     white-space: pre !important;
     overflow-x: auto !important;
     background: none !important;
+}
+
+.post-container:last-child {
+    border-bottom: none;
 }
 /* purgecss end ignore */
