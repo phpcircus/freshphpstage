@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import store from 'JS/store';
+import VueHead from 'vue-head'
 import Dates from 'Mixins/Dates';
 import VueStash from 'vue-stash';
 import Inertia from 'inertia-vue';
@@ -18,6 +19,12 @@ Vue.mixin(Dates);
 
 // Use Vue instant-search
 Vue.use(VueInstantSearch);
+
+// Use Vue-Head
+Vue.use(VueHead, {
+    separator: '|',
+    complement: 'PHPStage.com',
+});
 
 // Use PortalVue
 Vue.use(PortalVue);
