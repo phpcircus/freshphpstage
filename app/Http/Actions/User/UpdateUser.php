@@ -50,6 +50,6 @@ class UpdateUser extends Action
             UpdateUserPasswordService::call($user, $request->only('password'));
         }
 
-        return $this->responder->withPayload($updated);
+        return $this->responder->withPayload($updated)->respond();
     }
 }

@@ -8,7 +8,7 @@ use PerfectOblivion\Responder\Responder;
 class CreatePostResponder extends Responder
 {
     /**
-     * Send a response.
+     * Send the response.
      *
      * @return \Illuminate\View\View
      */

@@ -26,25 +26,31 @@ class InertiaServiceProvider extends ServiceProvider
         Inertia::version(static function () {
             return md5_file(public_path('mix-manifest.json'));
         });
+
         Inertia::share('app.name', Config::get('app.name'));
+
         Inertia::share('errors', static function () {
             return Session::get('errors') ? Session::get('errors')->getBag('default')->getMessages() : (object) [];
         });
-        Inertia::share('success', function () {
+
+        Inertia::share('success', static function () {
             return [
                 'success' => Session::get('success'),
             ];
         });
-        Inertia::share('warning', function () {
+
+        Inertia::share('warning', static function () {
             return [
                 'warning' => Session::get('warning'),
             ];
         });
-        Inertia::share('info', function () {
+
+        Inertia::share('info', static function () {
             return [
                 'info' => Session::get('info'),
             ];
         });
+
         Inertia::share('auth.user', static function () {
             if ($user = Auth::user()) {
                 return [

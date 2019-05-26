@@ -14,6 +14,6 @@ class IndexResponder extends Responder
      */
     public function respond()
     {
-        return Inertia::render('Home/Index', ['posts' => $this->payload]);
+        return Inertia::render('Home/Index')->with('posts', $this->payload);
     }
 }

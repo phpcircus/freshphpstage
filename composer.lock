@@ -840,17 +840,13 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/inertiajs/inertia-laravel.git",
-                "reference": "13bc1e0802a0d6d590fc3f3a0e865817a8f70f02"
+                "reference": "cb019592946bc939f61291039b8e893da66dd6eb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/inertiajs/inertia-laravel/zipball/13bc1e0802a0d6d590fc3f3a0e865817a8f70f02",
-                "reference": "13bc1e0802a0d6d590fc3f3a0e865817a8f70f02",
+                "url": "https://api.github.com/repos/inertiajs/inertia-laravel/zipball/cb019592946bc939f61291039b8e893da66dd6eb",
+                "reference": "cb019592946bc939f61291039b8e893da66dd6eb",
                 "shasum": ""
-            },
-            "require": {
-                "illuminate/contracts": "^5.8",
-                "illuminate/support": "^5.8"
             },
             "require-dev": {
                 "orchestra/testbench": "~3.0"
@@ -884,7 +880,7 @@
                 "inertia",
                 "laravel"
             ],
-            "time": "2019-05-14T09:33:16+00:00"
+            "time": "2019-05-22T11:08:52+00:00"
         },
         {
             "name": "jakub-onderka/php-console-color",

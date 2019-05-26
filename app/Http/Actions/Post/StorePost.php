@@ -33,6 +33,6 @@ class StorePost extends Action
     {
         return $this->responder->withPayload(
             StorePostService::call($request->only(['title', 'summary', 'body']))
-        );
+        )->respond();
     }
 }

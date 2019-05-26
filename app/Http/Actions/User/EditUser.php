@@ -30,6 +30,6 @@ class EditUser extends Action
      */
     public function __invoke(User $user)
     {
-        return $this->responder->withPayload($user);
+        return $this->responder->withPayload($user)->respond();
     }
 }
