@@ -20,7 +20,7 @@ class ShowPostResponder extends Responder
                 'twitter_card_url' => config('app.url').'/posts/'.$this->payload->slug,
                 'twitter_card_title' => $this->payload->title,
                 'twitter_card_description' => $this->payload->summary,
-            ],
+            ]
         );
     }
 }
