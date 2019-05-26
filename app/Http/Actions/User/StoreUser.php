@@ -33,6 +33,6 @@ class StoreUser extends Action
     {
         $created = StoreUserService::call($request->only(['name', 'email', 'password']));
 
-        return $this->responder->withPayload($created);
+        return $this->responder->withPayload($created)->respond();
     }
 }

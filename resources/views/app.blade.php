@@ -8,9 +8,9 @@
         <meta name="twitter:card" content="summary" id="twitterCard">
         <meta name="twitter:creator" content="@devcircus" id="twitterCreator">
         <meta name="twitter:image" content="https://res.cloudinary.com/phpstage/image/upload/c_scale,w_120/v1558860620/img/devcircus.jpg" id="twitterCreator">
-        <meta name="og:url" content="https://phpstage.com/" id="twitterUrl">
-        <meta name="og:title" content="PHPStage.com" id="twitterTitle">
-        <meta name="og:description" content="See the latest from PHPStage.com" id="twitterDescription">
+        <meta name="og:url" content="{{ isset($meta) ? $meta['twitter_card_url'] : config('app.url')}}" id="twitterUrl">
+        <meta name="og:title" content="{{ isset($meta) ? $meta['twitter_card_title'] : config('app.name')}}" id="twitterTitle">
+        <meta name="og:description" content="{{ isset($meta) ? $meta['twitter_card_description'] : 'See the latest from PHStage.com'}}" id="twitterDescription">
         @routes
     </head>
 

@@ -28,6 +28,6 @@ class ListPosts extends Action
      */
     public function __invoke()
     {
-        return $this->responder->withPayload(ListPostsService::call());
+        return $this->responder->withPayload(ListPostsService::call())->respond();
     }
 }

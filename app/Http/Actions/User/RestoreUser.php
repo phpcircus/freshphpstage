@@ -33,6 +33,6 @@ class RestoreUser extends Action
     {
         $restored = RestoreUserService::call($user);
 
-        return $this->responder->withPayload($restored);
+        return $this->responder->withPayload($restored)->respond();
     }
 }

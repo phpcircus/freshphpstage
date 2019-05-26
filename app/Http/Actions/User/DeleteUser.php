@@ -33,6 +33,6 @@ class DeleteUser extends Action
     {
         $deleted = DeleteUserService::call($user);
 
-        return $this->responder->withPayload($deleted);
+        return $this->responder->withPayload($deleted)->respond();
     }
 }

@@ -27,6 +27,6 @@ class CreateUser extends Action
      */
     public function __invoke()
     {
-        return $this->responder;
+        return $this->responder->respond();
     }
 }

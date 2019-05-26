@@ -34,6 +34,6 @@ class ListUsers extends Action
         return $this->responder->withPayload([
             'filters' => $request->all('search', 'trashed'),
             'users' => ListUsersService::call($request->only('search', 'trashed')),
-        ]);
+        ])->respond();
     }
 }
