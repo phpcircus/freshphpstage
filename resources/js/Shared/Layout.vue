@@ -84,18 +84,14 @@
                 accounts: null,
             }
         },
-        watch: {
-            title (title) {
-                this.updatePageTitle(title);
+        head: {
+            title: function () {
+                return {
+                    inner: this.title,
+                }
             },
-        },
-        mounted () {
-            this.updatePageTitle(this.title);
         },
         methods: {
-            updatePageTitle (title) {
-                document.title = title ? `${title} | ${this.$page.app.name}` : this.$page.app.name;
-            },
             hideDropdownMenus () {
                 this.showUserMenu = false;
             },
