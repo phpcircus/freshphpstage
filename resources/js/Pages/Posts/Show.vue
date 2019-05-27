@@ -22,5 +22,15 @@ export default {
     props: {
         post: Object,
     },
+    created () {
+        document.querySelector('meta[name="og:url"]').setAttribute('content', 'https://phpstage.com/posts'+this.post.slug);
+        document.querySelector('meta[name="og:title"]').setAttribute('content', this.post.title);
+        document.querySelector('meta[name="og:description"]').setAttribute('content', this.post.summary);
+    },
+    destroyed () {
+        document.querySelector('meta[name="og:url"]').setAttribute('content', 'https://phpstage.com');
+        document.querySelector('meta[name="og:title"]').setAttribute('content', 'PHPStage');
+        document.querySelector('meta[name="og:description"]').setAttribute('content', 'See the latest from PHPStage.com');
+    },
 }
 </script>
