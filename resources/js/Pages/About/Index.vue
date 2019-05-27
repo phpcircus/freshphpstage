@@ -5,16 +5,17 @@
         </h1>
         <div class="w-full md:w-1/2">
             <div class="flex flex-col justify-between">
+                <span class="text-3xl text-gray-800 mb-8">Clayton Stone</span>
                 <div class="flex mb-4 items-center">
-                    <h2 class="text-xl text-blue-900 mr-2 uppercase">Years in web development:</h2>
+                    <h2 class="text-lg text-blue-900 mr-2 uppercase">Years in web development:</h2>
                     <span class="text-lg text-blue-600">14</span>
                 </div>
                 <div class="flex mb-4 items-center">
-                    <h2 class="text-xl text-blue-900 mr-2 uppercase">Started with:</h2>
+                    <h2 class="text-lg text-blue-900 mr-2 uppercase">Started with:</h2>
                     <span class="text-lg text-blue-600">Coldfusion</span>
                 </div>
                 <div class="flex mb-8 items-center">
-                    <h2 class="text-xl text-blue-900 mr-2 uppercase">Current:</h2>
+                    <h2 class="text-lg text-blue-900 mr-2 uppercase">Current:</h2>
                     <span class="text-lg text-blue-600">PHP(Laravel), Javascript(Vue), Firebase</span>
                 </div>
                 <div class="flex mb-4 items-center">
@@ -33,6 +34,17 @@ import Layout from '@/Shared/Layout';
 export default {
     components: {
         Layout,
+    },
+
+    created () {
+        document.querySelector('meta[name="og:url"]').setAttribute('content', 'https://phpstage.com/about');
+        document.querySelector('meta[name="og:title"]').setAttribute('content', 'A Little About Me');
+        document.querySelector('meta[name="og:description"]').setAttribute('content', 'A little information about me, and my current web development stack.');
+    },
+    destroyed () {
+        document.querySelector('meta[name="og:url"]').setAttribute('content', 'https://phpstage.com');
+        document.querySelector('meta[name="og:title"]').setAttribute('content', 'PHPStage');
+        document.querySelector('meta[name="og:description"]').setAttribute('content', 'See the latest from PHPStage.com');
     },
 }
 </script>
