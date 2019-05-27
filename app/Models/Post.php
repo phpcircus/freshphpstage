@@ -15,6 +15,23 @@ class Post extends Model
     protected $appends = ['createdAtDiff'];
 
     /**
+     * Get the indexable data array for the model.
+     *
+     * @return array
+     */
+    public function toSearchableArray()
+    {
+        return [
+            'id' => $this->id,
+            'title' => $this->title,
+            'slug' => $this->slug,
+            'summary' => $this->summary,
+            'active' => $this->active,
+            'user_id' => $this->user_id,
+        ];
+    }
+
+    /**
      * Get the route key for the model.
      *
      * @return string
