@@ -7,13 +7,14 @@
                 {{ post.title }}
             </h1>
             <span class="block text-base text-blue-500 italic -mt-4 mb-4">{{ post.createdAtDiff }}</span>
-            <div class="trix-content text-gray-800 text-base leading-normal" v-html="post.body" />
+            <div ref="trix" class="trix-content text-gray-800 text-base leading-normal" v-html="post.body" />
         </div>
     </layout>
 </template>
 
 <script>
 import Layout from '@/Shared/Layout';
+import hljs from 'Libraries/highlightjs';
 
 export default {
     components: {
@@ -26,6 +27,11 @@ export default {
         document.querySelector('meta[name="og:url"]').setAttribute('content', 'https://phpstage.com/posts'+this.post.slug);
         document.querySelector('meta[name="og:title"]').setAttribute('content', this.post.title);
         document.querySelector('meta[name="og:description"]').setAttribute('content', this.post.summary);
+    },
+    mounted () {
+        this.$refs.trix.querySelectorAll('pre').forEach((block) => {
+            hljs.highlightBlock(block);
+        });
     },
     destroyed () {
         document.querySelector('meta[name="og:url"]').setAttribute('content', 'https://phpstage.com');
