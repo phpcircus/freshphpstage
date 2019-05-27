@@ -54,6 +54,7 @@
     50 => 'App\\Providers\\DateServiceProvider',
     51 => 'App\\Providers\\DatabaseServiceProvider',
     52 => 'App\\Providers\\UrlServiceProvider',
+    53 => 'App\\Providers\\DebugbarServiceProvider',
   ),
   'eager' => 
   array (
@@ -93,6 +94,7 @@
     33 => 'App\\Providers\\DateServiceProvider',
     34 => 'App\\Providers\\DatabaseServiceProvider',
     35 => 'App\\Providers\\UrlServiceProvider',
+    36 => 'App\\Providers\\DebugbarServiceProvider',
   ),
   'deferred' => 
   array (
