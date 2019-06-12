@@ -2,11 +2,30 @@
 
 namespace App\Models;
 
-use App\Models\Traits\Uuid\HasUuids;
-
 class Comment extends Model
 {
-    use HasUuids;
+    /** @var array */
+    protected $guarded = [];
+
+    /** @var int */
+    protected $perPage = 5;
+
+    /** @var array */
+    protected $with = ['user'];
+
+    /*
+     * Retrieve the model for a bound value.
+     *
+     * @param  mixed  $value
+     *
+     * @return \Illuminate\Database\Eloquent\Model|null
+     */
+    public function resolveRouteBinding($value)
+    {
+        return in_array(SoftDeletes::class, class_uses($this))
+            ? $this->where($this->getRouteKeyName(), $value)->withTrashed()->first()
+            : parent::resolveRouteBinding($value);
+    }
 
     /**
      * A comment belongs to a user.

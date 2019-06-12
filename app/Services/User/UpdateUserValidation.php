@@ -17,6 +17,7 @@ class UpdateUserValidation extends ValidationService
         return [
             'name' => ['required', 'max:50'],
             'email' => ['required', 'max:50', 'email', Rule::unique('users')->ignore($this->validationData()['id'])],
+            'nick' => ['nullable', 'min:2'],
             'password' => ['nullable'],
         ];
     }
@@ -29,6 +30,9 @@ class UpdateUserValidation extends ValidationService
     public function filters()
     {
         return [
+            'name' => ['trim', 'strip_tags'],
+            'email' => ['trim', 'strip_tags'],
+            'nick' => ['trim', 'strip_tags'],
         ];
     }
 }

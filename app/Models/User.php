@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Support\Str;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -22,6 +23,9 @@ class User extends Authenticatable implements AuthorizableContract, MustVerifyEm
     /** @var array */
     protected $casts = ['is_admin' => 'boolean'];
 
+    /** @var array */
+    protected $appends = ['display_name'];
+
     /**
      * A user has many posts.
      *
@@ -30,6 +34,16 @@ class User extends Authenticatable implements AuthorizableContract, MustVerifyEm
     public function posts()
     {
         return $this->hasMany(Post::class);
+    }
+
+    /**
+     * Get the display name for the user.
+     *
+     * @return string
+     */
+    public function getDisplayNameAttribute()
+    {
+        return $this->nick ?: $this->name;
     }
 
     /**
@@ -91,11 +105,37 @@ class User extends Authenticatable implements AuthorizableContract, MustVerifyEm
      */
     public function createUser(array $params)
     {
-        return $this->create([
+        $firstName = Str::contains($params['name'], ' ') ? Str::before($params['name'], ' ') : null;
+
+        $user = $this->make([
             'name' => $params['name'],
             'email' => $params['email'],
-            'password' => bcrypt($params['password']),
+            'nick' => $params['nick'] ?? $firstName,
         ]);
+
+        if ($params['password']) {
+            $user->password = bcrypt($params['password']);
+        }
+
+        $user->save();
+
+        return $user;
+    }
+
+    /**
+     * Create a user with the provided data.
+     *
+     * @param  array  $params
+     *
+     * @return \App\Models\User
+     */
+    public function registerUser(array $params)
+    {
+        $params['name'] = strip_tags(trim($params['name']));
+        $params['email'] = strip_tags(trim($params['email']));
+        $params['nick'] = strip_tags(trim($params['nick']));
+
+        return $this->createUser($params);
     }
 
     /**
@@ -150,5 +190,15 @@ class User extends Authenticatable implements AuthorizableContract, MustVerifyEm
                 'password' => bcrypt($params['password']),
             ]);
         })->fresh();
+    }
+
+    /**
+     * A User has many Comments.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
     }
 }

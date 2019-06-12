@@ -3,4 +3,5 @@ export const config = {
     timezone: process.env.MIX_FRONTEND_TIMEZONE,
     algoliaId: process.env.MIX_ALGOLIA_APP_ID,
     algoliaSearch: process.env.MIX_ALGOLIA_SEARCH,
+    recaptchaKey: process.env.MIX_RECAPTCHA_KEY,
 }

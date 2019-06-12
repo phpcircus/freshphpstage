@@ -19,6 +19,7 @@ return [
 
     'admin' => [
         'name' => env('ADMIN_NAME'),
+        'nick' => env('ADMIN_NICK'),
         'email' => env('ADMIN_EMAIL'),
         'password' => env('ADMIN_PASSWORD'),
     ],

@@ -31,7 +31,7 @@ class StoreUser extends Action
      */
     public function __invoke(Request $request)
     {
-        $created = StoreUserService::call($request->only(['name', 'email', 'password']));
+        $created = StoreUserService::call($request->only(['name', 'email', 'nick', 'password']));
 
         return $this->responder->withPayload($created)->respond();
     }

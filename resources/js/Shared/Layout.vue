@@ -24,22 +24,28 @@
                             <search-box class="absolute top-0 left-0 mt-8 ml-4 md:mt-6 md:ml-12 z-10" />
                         </div>
                         <div class="mt-1 mr-4">&nbsp;</div>
-                        <dropdown v-if="$page.auth.user" class="mt-1 md:ml-auto " placement="bottom-end">
-                            <div class="flex items-center cursor-pointer select-none group">
-                                <div class="text-blue-900 group-hover:text-blue-700 focus:text-blue-700 mr-1 whitespace-no-wrap">
-                                    <span class="inline">{{ $page.auth.user.name }}</span>
+                        <div v-if="$page.auth.user">
+                            <dropdown class="mt-1 md:ml-auto " placement="bottom-end">
+                                <div class="flex items-center cursor-pointer select-none group">
+                                    <div class="text-blue-900 group-hover:text-blue-700 focus:text-blue-700 mr-1 whitespace-no-wrap">
+                                        <span class="inline">{{ $page.auth.user.name }}</span>
+                                    </div>
+                                    <icon class="w-5 h-5 group-hover:fill-blue-700 fill-blue-900 focus:fill-blue-700" name="cheveron-down" />
                                 </div>
-                                <icon class="w-5 h-5 group-hover:fill-blue-700 fill-blue-900 focus:fill-blue-700" name="cheveron-down" />
-                            </div>
-                            <div slot="dropdown" class="mt-2 py-2 shadow-lg bg-white rounded text-sm">
-                                <inertia-link class="block px-6 py-2 hover:bg-blue-500 hover:text-white" :href="route('users.edit', $page.auth.user.id)">My Profile</inertia-link>
-                                <div v-if="$page.auth.user.is_admin">
-                                    <inertia-link class="block px-6 py-2 hover:bg-blue-500 hover:text-white" :href="route('users')">Manage Users</inertia-link>
-                                    <inertia-link class="block px-6 py-2 hover:bg-blue-500 hover:text-white" :href="route('posts.create')">New Post</inertia-link>
+                                <div slot="dropdown" class="mt-2 py-2 shadow-lg bg-white rounded text-sm">
+                                    <inertia-link class="block px-6 py-2 hover:bg-blue-500 hover:text-white" :href="route('users.edit', $page.auth.user.id)">My Profile</inertia-link>
+                                    <div v-if="$page.auth.user.is_admin">
+                                        <inertia-link class="block px-6 py-2 hover:bg-blue-500 hover:text-white" :href="route('users')">Manage Users</inertia-link>
+                                        <inertia-link class="block px-6 py-2 hover:bg-blue-500 hover:text-white" :href="route('posts.create')">New Post</inertia-link>
+                                    </div>
+                                    <inertia-link class="block px-6 py-2 hover:bg-blue-500 hover:text-white" :href="route('logout')" method="post">Logout</inertia-link>
                                 </div>
-                                <inertia-link class="block px-6 py-2 hover:bg-blue-500 hover:text-white" :href="route('logout')" method="post">Logout</inertia-link>
-                            </div>
-                        </dropdown>
+                            </dropdown>
+                        </div>
+                        <div v-else class="flex justify-between">
+                            <inertia-link class="block px-6 py-2 uppercase text-blue-900 hover:text-blue-700" :href="route('login.form')">Login</inertia-link>
+                            <inertia-link class="block px-6 py-2 uppercase text-blue-900 hover:text-blue-700" :href="route('register.form')">Register</inertia-link>
+                        </div>
                     </div>
                 </div>
                 <div class="flex flex-grow w-full relative">

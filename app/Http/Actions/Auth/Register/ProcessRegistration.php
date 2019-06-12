@@ -27,18 +27,23 @@ class ProcessRegistration extends Action
     /** @var \Illuminate\Auth\AuthManager */
     private $auth;
 
+    /** @var \App\Models\User */
+    private $model;
+
     /**
      * Construct a new ProcessRegistration action.
      *
      * @param  \Illuminate\Validation\Factory  $validator
      * @param  \Illuminate\Contracts\Hashing\Hasher  $hasher
      * @param  \Illuminate\Auth\AuthManager  $auth
+     * @param  \App\Models\User  $model
      */
-    public function __construct(Validator $validator, Hasher $hasher, AuthManager $auth)
+    public function __construct(Validator $validator, Hasher $hasher, AuthManager $auth, User $model)
     {
         $this->validator = $validator;
         $this->hasher = $hasher;
         $this->auth = $auth;
+        $this->model = $model;
     }
 
     /**
@@ -72,6 +77,7 @@ class ProcessRegistration extends Action
         return $this->validator->make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'nick' => ['nullable', 'string', 'min:2', 'max:255'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
@@ -85,9 +91,10 @@ class ProcessRegistration extends Action
      */
     protected function create(array $data)
     {
-        return User::create([
+        return $this->model->registerUser([
             'name' => $data['name'],
             'email' => $data['email'],
+            'nick' => $data['nick'],
             'password' => $this->hasher->make($data['password']),
         ]);
     }

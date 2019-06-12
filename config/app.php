@@ -180,6 +180,7 @@ return [
         App\Providers\DatabaseServiceProvider::class,
         App\Providers\UrlServiceProvider::class,
         App\Providers\DebugbarServiceProvider::class,
+        App\Providers\RecaptchaServiceProvider::class,
     ],
 
     /*

@@ -9,6 +9,7 @@
                         <div class="mx-auto mt-6 w-24 border-b-2" />
                         <text-input v-model="form.name" :errors="errors.name" class="mt-10" label="Name" type="name" autofocus />
                         <text-input v-model="form.email" :errors="errors.email" class="mt-10" label="Email" type="email" autocapitalize="off" />
+                        <text-input v-model="form.nick" :errors="errors.nick" class="mt-10" label="Nickname" type="name" />
                         <text-input v-model="form.password" :errors="errors.password" class="mt-6" label="Password" type="password" />
                         <text-input v-model="form.password_confirmation" class="mt-6" label="Confirm Password" type="password" />
                     </div>
@@ -44,6 +45,7 @@ export default {
             form: {
                 name: null,
                 email: null,
+                nick: null,
                 password: null,
                 password_confirmation: null,
             },
@@ -55,12 +57,7 @@ export default {
     methods: {
         submit () {
             this.sending = true;
-            this.$inertia.post(this.route('register.attempt'), {
-                name: this.form.name,
-                email: this.form.email,
-                password: this.form.password,
-                password_confirmation: this.form.password_confirmation,
-            }).then(() => {
+            this.$inertia.post(this.route('register.attempt'), this.form).then(() => {
                 this.sending = false;
             });
         },

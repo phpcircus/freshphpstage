@@ -30,6 +30,6 @@ class ShowPost extends Action
      */
     public function __invoke(Post $post)
     {
-        return $this->responder->withPayload($post)->respond();
+        return $this->responder->withPayload($post->load('comments'))->respond();
     }
 }

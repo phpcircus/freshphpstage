@@ -17,6 +17,7 @@ class StoreUserValidation extends ValidationService
         return [
             'name' => ['required'],
             'email' => ['required', Rule::unique('users', 'email')],
+            'nick' => ['nullable', 'min:2'],
             'password' => ['required', 'min:8'],
         ];
     }
@@ -31,6 +32,7 @@ class StoreUserValidation extends ValidationService
         return [
             'name' => ['strip_tags', 'trim'],
             'email' => ['strip_tags', 'trim'],
+            'nick' => ['strip_tags', 'trim'],
         ];
     }
 }

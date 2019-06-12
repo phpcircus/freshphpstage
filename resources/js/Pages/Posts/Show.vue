@@ -8,6 +8,7 @@
             </h1>
             <span class="block text-base text-blue-500 italic -mt-4 mb-4">{{ post.createdAtDiff }}</span>
             <div ref="trix" class="trix-content text-gray-800 text-base leading-normal" v-html="post.body" />
+            <post-comments :comments="post.comments" :post="post" />
         </div>
     </layout>
 </template>
@@ -15,10 +16,12 @@
 <script>
 import Layout from '@/Shared/Layout';
 import hljs from 'Libraries/highlightjs';
+import PostComments from '@/Shared/PostComments';
 
 export default {
     components: {
         Layout,
+        PostComments,
     },
     props: {
         post: Object,

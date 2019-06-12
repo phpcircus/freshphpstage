@@ -34,6 +34,7 @@ class UpdateUserService
         return $user->updateUserData([
             'name' => $params['name'],
             'email' => $params['email'],
+            'nick' => $params['nick'],
         ]);
     }
 }

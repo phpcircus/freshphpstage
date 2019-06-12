@@ -11,7 +11,7 @@ class Index extends Action
     private $responder;
 
     /**
-     * Construct a new About Index action.
+     * Construct a new About index action.
      *
      * @param  \App\Http\Responders\About\IndexResponder  $responder
      */
