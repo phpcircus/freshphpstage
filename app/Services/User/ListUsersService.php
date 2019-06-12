@@ -38,6 +38,7 @@ class ListUsersService
                     'id' => $user->id,
                     'name' => $user->name,
                     'email' => $user->email,
+                    'nick' => $user->nick,
                     'deleted_at' => $user->deleted_at,
                 ];
             });

@@ -17,6 +17,13 @@
       0 => 'Barryvdh\\LaravelIdeHelper\\IdeHelperServiceProvider',
     ),
   ),
+  'beyondcode/laravel-comments' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'BeyondCode\\Comments\\CommentsServiceProvider',
+    ),
+  ),
   'beyondcode/laravel-dump-server' => 
   array (
     'providers' => 

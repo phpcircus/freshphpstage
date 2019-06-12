@@ -8,10 +8,11 @@
                         <h1 class="text-center font-bold text-3xl">Email Verification</h1>
                         <div class="mx-auto mt-6 w-24 border-b-2" />
                     </div>
-                    <div class="px-10 py-4 bg-gray-100 border-t border-gray-200 flex flex-col justify-between items-center">
+                    <div class="leading-snug px-10 py-4 bg-gray-100 border-t border-gray-200 flex flex-col justify-between items-center">
                         <span class="text-base text-gray-600 mb-8">
-                            Before proceeding, please check your email for a verification link. If you did not receive the email, click
-                            <inertia-link class="hover:underline text-blue-500" tabindex="-1" :href="route('verification.resend')">here to resend the verification email?</inertia-link>
+                            If you did not receive a verification email upon registering, or if the link has expired, please
+                            <inertia-link class="hover:underline text-blue-500" tabindex="-1" :href="route('verification.resend')">click here </inertia-link>
+                            to resend.
                         </span>
                         <span class="flex self-start text-sm text-gray-600 mb-4">
                             <inertia-link class="btn-text mr-auto" tabindex="-1" :href="route('home')">Home</inertia-link>

@@ -11,8 +11,8 @@ Route::post('/login', Auth\Login\ProcessLogin::class)->middleware('guest')->name
 Route::post('/logout', Auth\Logout\ProcessLogout::class)->middleware('auth')->name('logout');
 
 // Auth - Register
-// Route::get('/register', Auth\Register\ShowForm::class)->middleware('guest')->name('register.form');
-// Route::post('/register', Auth\Register\ProcessRegistration::class)->middleware('guest')->name('register.attempt');
+Route::get('/register', Auth\Register\ShowForm::class)->middleware('guest')->name('register.form');
+Route::post('/register', Auth\Register\ProcessRegistration::class)->middleware('guest')->name('register.attempt');
 
 // Password Reset
 Route::get('/password/reset', Auth\PasswordResetRequest\ShowForm::class)->middleware('guest')->name('password.request.form');
@@ -26,9 +26,9 @@ Route::post('/password/reset', Auth\PasswordReset\UpdatePassword::class)->middle
  * Middleware is defined inside the constructor of each Action.
  * ['auth', 'signed', 'throttle']
  */
-// Route::get('email/verify', Auth\EmailVerification\ShowVerification::class)->name('verification.notice');
-// Route::get('email/verify/{id}', Auth\EmailVerification\Verify::class)->name('verification.verify');
-// Route::get('email/resend ', Auth\EmailVerification\ResendVerify::class)->name('verification.resend');
+Route::get('email/verify', Auth\EmailVerification\ShowVerification::class)->name('verification.notice');
+Route::get('email/verify/{id}', Auth\EmailVerification\Verify::class)->name('verification.verify');
+Route::get('email/resend ', Auth\EmailVerification\ResendVerify::class)->name('verification.resend');
 
 // Users
 Route::get('users', User\ListUsers::class)->middleware('auth')->name('users');
@@ -44,6 +44,9 @@ Route::get('posts', Post\ListPosts::class)->name('posts');
 Route::get('posts/create', Post\CreatePost::class)->middleware('auth')->name('posts.create');
 Route::post('posts', Post\StorePost::class)->middleware('auth')->name('posts.store');
 Route::get('posts/{post}', Post\ShowPost::class)->name('post.show');
+
+// Comments
+Route::post('posts/{post}/comments', Comment\StoreComment::class)->middleware(['auth', 'recaptcha'])->name('comments.store');
 
 // About
 Route::get('about', About\Index::class)->name('about');

@@ -6,10 +6,11 @@ use Laravel\Scout\Searchable;
 use App\Models\Traits\Slug\HasSlug;
 use App\Models\Traits\Uuid\HasUuids;
 use App\Models\Traits\Slug\SlugOptions;
+use BeyondCode\Comments\Traits\HasComments;
 
 class Post extends Model
 {
-    use HasUuids, HasSlug, Searchable;
+    use HasUuids, HasSlug, Searchable,HasComments;
 
     /** @var array */
     protected $appends = ['createdAtDiff'];
@@ -86,6 +87,23 @@ class Post extends Model
             'summary' => $params['summary'],
             'body' => $params['body'],
             'active' => 1,
+        ]);
+    }
+
+    /**
+     * Save a new comment for a Post.
+     *
+     * @param  array  $params
+     * @param  int  $userId
+     *
+     * @return mixed
+     */
+    public function saveComment(array $params, int $userId)
+    {
+        return $this->comments()->create([
+            'body' => $params['body'],
+            'is_approved' => false,
+            'user_id' => $userId,
         ]);
     }
 

@@ -17,14 +17,15 @@ class TableSeeder extends Seeder
 
         collect($users)->each(function ($user) {
             $post = factory(Post::class)->create(['user_id' => $user->id]);
-            $comment = factory(Comment::class)->create(['post_id' => $post->id]);
         });
 
         $this->createDefaultAdmin();
+
+        factory(Comment::class, 20)->create();
     }
 
     /**
-     * Seed the application's users table.
+     * Seed the application's admin user.
      *
      * @return \App\Models\User
      */
@@ -32,6 +33,7 @@ class TableSeeder extends Seeder
     {
         return factory(User::class)->create([
             'name' => config('auth.admin.name'),
+            'nick' => config('auth.admin.nick'),
             'email' => config('auth.admin.email'),
             'password' => bcrypt(config('auth.admin.password')),
             'is_admin' => true,

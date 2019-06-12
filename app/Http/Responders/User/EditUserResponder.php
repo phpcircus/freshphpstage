@@ -19,6 +19,7 @@ class EditUserResponder extends Responder
                 'id' => $this->payload->id,
                 'name' => $this->payload->name,
                 'email' => $this->payload->email,
+                'nick' => $this->payload->nick,
                 'deleted_at' => $this->payload->deleted_at,
             ],
         ]);
