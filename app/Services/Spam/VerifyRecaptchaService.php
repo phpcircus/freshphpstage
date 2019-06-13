@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\Recaptcha;
+namespace App\Services\Spam;
 
 use ReCaptcha\ReCaptcha;
 use Illuminate\Support\Str;

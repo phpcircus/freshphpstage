@@ -14,9 +14,13 @@
                     </div>
                 </div>
             </div>
+            <div v-if="comments.length < 1" class="leading-snug flex px-4 py-6 mb-4 items-center">
+                <span class="text-lg text-gray-700 font-semibold italic whitespace-no-wrap">No comments.</span>
+            </div>
         </div>
         <div v-if="$page.auth.user && $page.auth.user.email_verified_at" class="w-full md:w-2/3 bg-white border-t-4 border-blue-400 shadow overflow-hidden mt-4">
             <form @submit.prevent="submit">
+                <honey-input v-model="form.checker" name="first_name" type="name" />
                 <div class="p-8 -mr-6 -mb-12 flex flex-wrap">
                     <textarea-input v-model="form.body" :errors="$page.errors.body" class="pr-6 pb-8 w-full" label="Comment" />
                 </div>
@@ -54,6 +58,7 @@
 import { config } from 'Config';
 import { load } from 'recaptcha-v3'
 import moment from 'moment-timezone';
+import HoneyInput from '@/Shared/HoneyInput';
 import TextareaInput from '@/Shared/TextareaInput';
 import LoadingButton from '@/Shared/LoadingButton';
 
@@ -61,10 +66,12 @@ export default {
     components: {
         TextareaInput,
         LoadingButton,
+        HoneyInput,
     },
     props: {
         post: Object,
         comments: Array,
+        start: String,
     },
     data () {
         return {
@@ -73,6 +80,8 @@ export default {
                 body: null,
                 token: null,
                 action: 'comment',
+                time: this.start,
+                checker: null,
             },
         }
     },

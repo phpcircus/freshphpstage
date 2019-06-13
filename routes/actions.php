@@ -46,7 +46,7 @@ Route::post('posts', Post\StorePost::class)->middleware('auth')->name('posts.sto
 Route::get('posts/{post}', Post\ShowPost::class)->name('post.show');
 
 // Comments
-Route::post('posts/{post}/comments', Comment\StoreComment::class)->middleware(['auth', 'recaptcha'])->name('comments.store');
+Route::post('posts/{post}/comments', Comment\StoreComment::class)->middleware(['auth', 'recaptcha', 'honey'])->name('comments.store');
 
 // About
 Route::get('about', About\Index::class)->name('about');

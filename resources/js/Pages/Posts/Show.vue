@@ -8,7 +8,7 @@
             </h1>
             <span class="block text-base text-blue-500 italic -mt-4 mb-4">{{ post.createdAtDiff }}</span>
             <div ref="trix" class="trix-content text-gray-800 text-base leading-normal" v-html="post.body" />
-            <post-comments :comments="post.comments" :post="post" />
+            <post-comments :comments="post.comments" :post="post" :start="start" />
         </div>
     </layout>
 </template>
@@ -25,6 +25,7 @@ export default {
     },
     props: {
         post: Object,
+        start: String,
     },
     created () {
         document.querySelector('meta[name="og:url"]').setAttribute('content', 'https://phpstage.com/posts'+this.post.slug);
