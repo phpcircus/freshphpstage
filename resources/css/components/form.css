@@ -45,4 +45,14 @@
     box-shadow: 0 0 0 1px config('theme.colors.red-500');
   }
 }
+
+/****************** Honey Pot Field Styles *********************/
+.control-set {
+  display: none !important;
+}
+
+.control-input {
+  display: none !important;
+}
+
 /* purgecss end ignore */

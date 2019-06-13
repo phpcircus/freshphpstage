@@ -60,6 +60,7 @@ class Kernel extends HttpKernel
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'selfdelete.prevent' => \App\Http\Middleware\PreventDeleteSelf::class,
         'recaptcha' => \App\Http\Middleware\VerifyRecaptcha::class,
+        'honey' => \App\Http\Middleware\HoneypotChecker::class,
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,

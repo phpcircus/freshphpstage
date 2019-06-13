@@ -3,7 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use App\Services\Recaptcha\VerifyRecaptchaService;
+use App\Services\Spam\VerifyRecaptchaService;
 
 class VerifyRecaptcha
 {
@@ -12,6 +12,7 @@ class VerifyRecaptcha
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next
+     *
      * @return mixed
      */
     public function handle($request, Closure $next)
