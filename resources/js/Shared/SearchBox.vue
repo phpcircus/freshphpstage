@@ -1,7 +1,7 @@
 <template>
     <div class="flex flex-col">
         <div class="flex">
-            <input v-model="query" class="w-260p md:w-300p border-2 border-blue-500 px-2 py-1 md:py-2 rounded -mt-1 shadow" placeholder="Search posts…" type="text" @input="performSearch">
+            <input v-model="query" class="w-200p md:w-300p border-2 border-blue-500 px-2 py-1 md:py-2 rounded -mt-1 shadow" placeholder="Search posts…" type="text" @input="performSearch">
         </div>
         <div v-if="query && query.length" class="border-2 border-gray-300 mt-1">
             <ul v-if="hits && hits.length" class="list-reset bg-white">
