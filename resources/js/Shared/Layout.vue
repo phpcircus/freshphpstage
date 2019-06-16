@@ -25,7 +25,7 @@
                         </div>
                         <div class="mt-1 mr-4">&nbsp;</div>
                         <div v-if="$page.auth.user">
-                            <dropdown class="mt-1 md:ml-auto " placement="bottom-end">
+                            <dropdown class="mt-1 md:ml-auto" placement="bottom-end">
                                 <div class="flex items-center cursor-pointer select-none group">
                                     <div class="text-blue-900 group-hover:text-blue-700 focus:text-blue-700 mr-1 whitespace-no-wrap">
                                         <span class="inline">{{ $page.auth.user.name }}</span>
@@ -42,9 +42,9 @@
                                 </div>
                             </dropdown>
                         </div>
-                        <div v-else class="flex justify-between">
-                            <inertia-link class="block px-6 py-2 uppercase text-blue-900 hover:text-blue-700" :href="route('login.form')">Login</inertia-link>
-                            <inertia-link class="block px-6 py-2 uppercase text-blue-900 hover:text-blue-700" :href="route('register.form')">Register</inertia-link>
+                        <div v-else class="flex flex-col md:flex-row justify-between">
+                            <inertia-link class="block px-6 py-2 uppercase text-blue-900 font-semibold hover:text-blue-700" :href="route('login.form')">Login</inertia-link>
+                            <inertia-link class="block px-6 py-2 uppercase text-blue-900 font-semibold hover:text-blue-700" :href="route('register.form')">Register</inertia-link>
                         </div>
                     </div>
                 </div>
