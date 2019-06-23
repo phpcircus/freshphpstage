@@ -4,6 +4,7 @@ namespace App\Http\Actions\Comment;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use App\Http\DTO\CommentData;
 use PerfectOblivion\Actions\Action;
 use App\Services\Comment\StoreCommentService;
 use App\Http\Responders\Comment\StoreCommentResponder;
@@ -33,8 +34,12 @@ class StoreComment extends Action
      */
     public function __invoke(Request $request, Post $post)
     {
-        return $this->responder->withPayload(
-            StoreCommentService::call($request->only(['body']), $post, $request->user())
-        )->respond();
+        $comment = StoreCommentService::call(
+            CommentData::fromRequest($request),
+            $post,
+            $request->user()
+        );
+
+        return $this->responder->withPayload($comment)->respond();
     }
 }

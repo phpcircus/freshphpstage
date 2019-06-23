@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Http\DTO\PostData;
+use App\Http\DTO\CommentData;
 use Laravel\Scout\Searchable;
 use App\Models\Traits\Slug\HasSlug;
 use App\Models\Traits\Uuid\HasUuids;
@@ -10,7 +12,10 @@ use BeyondCode\Comments\Traits\HasComments;
 
 class Post extends Model
 {
-    use HasUuids, HasSlug, Searchable,HasComments;
+    use HasUuids;
+    use HasSlug;
+    use Searchable;
+    use HasComments;
 
     /** @var array */
     protected $appends = ['createdAtDiff'];
@@ -76,16 +81,16 @@ class Post extends Model
      * Store a new post.
      *
      * @param  \App\Models\User  $user
-     * @param  array  $params
+     * @param  \App\Http\DTO\PostData  $post
      *
      * @return \App\Models\Post
      */
-    public function storePost(User $user, array $params)
+    public function storePost(User $user, PostData $post)
     {
         return $user->posts()->create([
-            'title' => $params['title'],
-            'summary' => $params['summary'],
-            'body' => $params['body'],
+            'title' => $post->title,
+            'summary' => $post->summary,
+            'body' => $post->body,
             'active' => 1,
         ]);
     }
@@ -93,15 +98,15 @@ class Post extends Model
     /**
      * Save a new comment for a Post.
      *
-     * @param  array  $params
+     * @param  \App\Http\DTO\CommentData  $comment
      * @param  int  $userId
      *
-     * @return mixed
+     * @return \App\Models\Comment
      */
-    public function saveComment(array $params, int $userId)
+    public function saveComment(CommentData $comment, int $userId)
     {
         return $this->comments()->create([
-            'body' => $params['body'],
+            'body' => $comment->body,
             'is_approved' => false,
             'user_id' => $userId,
         ]);

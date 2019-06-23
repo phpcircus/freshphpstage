@@ -2,7 +2,9 @@
 
 namespace App\Services\Post;
 
+use App\Models\User;
 use App\Models\Post;
+use App\Http\DTO\PostData;
 use PerfectOblivion\Services\Traits\SelfCallingService;
 use App\Services\Post\Validation\StorePostValidationService;
 
@@ -31,14 +33,15 @@ class StorePostService
     /**
      * Handle the call to the service.
      *
-     * @param  array  $params
+     * @param  \App\Http\DTO\PostData  $post
+     * @param  \App\Models\User  $user
      *
      * @return \App\Models\Post
      */
-    public function run(array $params)
+    public function run(PostData $post, User $user)
     {
-        $this->validator->validate($params);
+        $this->validator->validate($post->toArray());
 
-        return $this->posts->storePost(auth()->user(), $params);
+        return $this->posts->storePost($user, $post);
     }
 }

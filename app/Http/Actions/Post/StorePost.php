@@ -2,6 +2,7 @@
 
 namespace App\Http\Actions\Post;
 
+use App\Http\DTO\PostData;
 use Illuminate\Http\Request;
 use PerfectOblivion\Actions\Action;
 use App\Services\Post\StorePostService;
@@ -31,8 +32,11 @@ class StorePost extends Action
      */
     public function __invoke(Request $request)
     {
-        return $this->responder->withPayload(
-            StorePostService::call($request->only(['title', 'summary', 'body']))
-        )->respond();
+        $post = StorePostService::call(
+            PostData::fromRequest($request),
+            $request->user(),
+        );
+
+        return $this->responder->withPayload($post)->respond();
     }
 }

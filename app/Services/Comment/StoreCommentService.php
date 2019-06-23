@@ -4,6 +4,7 @@ namespace App\Services\Comment;
 
 use App\Models\Post;
 use App\Models\User;
+use App\Http\DTO\CommentData;
 use PerfectOblivion\Services\Traits\SelfCallingService;
 use App\Services\Comment\Validation\StoreCommentValidationService;
 
@@ -27,16 +28,16 @@ class StoreCommentService
     /**
      * Handle the call to the service.
      *
-     * @param  array  $params
+     * @param  \App\Http\DTO\CommentData  $comment
      * @param  \App\Models\Post  $post
      * @param  \App\Models\User  $user
      *
-     * @return mixed
+     * @return \App\Models\Comment
      */
-    public function run(array $params, Post $post, User $user)
+    public function run(CommentData $comment, Post $post, User $user)
     {
-        $this->validator->validate($params);
+        $this->validator->validate($comment->toArray());
 
-        return $post->saveComment($params, $user->id);
+        return $post->saveComment($comment, $user->id);
     }
 }
